@@ -18,6 +18,7 @@ const createCard = (url, breedName, breedInfo) => {
   cardBody.setAttribute("class", "card-body");
   cardTitle.setAttribute("class", "card-title");
 
+  cardTitle.innerHTML = `${breedName}`;
   dogInfo.innerHTML = `${breedInfo}`;
   cardBody.append(cardTitle);
   cardBody.append(dogInfo);
