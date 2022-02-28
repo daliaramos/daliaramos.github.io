@@ -12,8 +12,10 @@
 p {
     margin-bottom: 0px;
 }
-#main-container {
+
+body {
     background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
+    background-attachment: fixed;
 }
 
 .row {
@@ -45,11 +47,12 @@ p {
 }
 
 .card-img-top {
-    margin-bottom: 2px;
-
-    border-radius: 5%;
-
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
     filter: sepia(10%);
+    margin-bottom: 2px;
+    border-radius: 5%;
 }
 
 .card-title {
@@ -66,9 +69,16 @@ p {
     .card {
         margin: 40px 20px;
     }
+    .card-title {
+        font-size: 1.4em;
+    }
 }
+
 @media (max-width: 800px) {
     .card {
         margin: 20px 10px;
+    }
+    .card-title {
+        font-size: 1.2em;
     }
 }
