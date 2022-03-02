@@ -1,4 +1,12 @@
 const row = document.querySelector(".row");
+const userInput = document.querySelector("#breed");
+
+userInput.addEventListener("input", search);
+
+function search(event) {
+  event.preventDefault();
+  console.log(userInput.value);
+}
 
 const capitalizeFirst = (toCapitalize) => {
   return toCapitalize[0].toUpperCase() + toCapitalize.slice(1);
@@ -109,7 +117,5 @@ const createAllCards = async () => {
     row.append(card);
   }
 };
-
-const dogDesc = (breed) => {};
 
 createAllCards();
