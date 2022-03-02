@@ -5,7 +5,9 @@ userInput.addEventListener("input", search);
 
 function search(event) {
   event.preventDefault();
-  console.log(userInput.value);
+  let breedName = userInput.value;
+  createAllCards(breedName);
+  //call create all cards.
 }
 
 const capitalizeFirst = (toCapitalize) => {
@@ -74,17 +76,16 @@ const createCard = (url, breedName, breedInfo) => {
   return cardSize;
 };
 
-const createAllCards = async () => {
+const createAllCards = async (input) => {
   const allBreedsResponse = await fetch("https://dog.ceo/api/breeds/list/all");
   const allBreedsObj = (await allBreedsResponse.json()).message;
   const breedNames = [];
   const breedImgsSrcs = [];
-
   console.log(allBreedsObj);
   for (breed in allBreedsObj) {
     let breedName = capitalizeFirst(breed);
-    let breedImg = "https://dog.ceo/api/breed/";
 
+    let breedImg = "https://dog.ceo/api/breed/";
     if (allBreedsObj[breed].length == 0) {
       breedName = finalizeName(breedName);
       breedImg = breedImg + breed + "/images/random";
@@ -108,14 +109,21 @@ const createAllCards = async () => {
       }
     }
   }
-
-  for (let i = 0; i < breedNames.length; ++i) {
-    const breedName = breedNames[i];
-    const breedImg = (await (await fetch(breedImgsSrcs[i])).json()).message;
+  const searchBreedNames = breedNames.filter(
+    (element) => element === `${input}`
+  );
+  input = input.split(" ");
+  const searchImgBreed = breedImgsSrcs.filter(
+    (element) =>
+      element ===
+      `${`https://dog.ceo/api/breed/${input[0].toLowerCase()}/images/random`}`
+  );
+  searchImgBreed.forEach((element) => console.log(element));
+  for (let i = 0; i < searchBreedNames.length; ++i) {
+    const breedName = searchBreedNames[i];
+    const breedImage = (await (await fetch(searchImgBreed[i])).json()).message;
     const breedInfo = "Lorem ipsum";
-    const card = createCard(breedImg, breedName, breedInfo);
+    const card = createCard(breedImage, breedName, breedInfo);
     row.append(card);
   }
 };
-
-createAllCards();
