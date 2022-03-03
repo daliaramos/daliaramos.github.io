@@ -6,7 +6,7 @@ userInput.addEventListener("input", search);
 function search(event) {
   event.preventDefault();
   let breedName = userInput.value;
-  createAllCards(breedName);
+  // createAllCards(breedName);
   //call create all cards.
 }
 
@@ -131,4 +131,15 @@ const createAllCards = async (input) => {
 const dogDesc = (url) => {
   //Wiki API
   let wikiAPI = "https://en.wikipedia.org/w/api.php";
+  const params = {
+    origin: "*",
+    format: "json",
+    action: "query",
+    prop: "extract",
+    exchars: 100,
+    exintro: true,
+    explaintext: true,
+    generator: "search",
+    gsrlimit: 1,
+  };
 };
