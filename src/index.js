@@ -128,3 +128,7 @@ const createAllCards = async (input) => {
   }
   console.log();
 };
+const dogDesc = (url) => {
+  //Wiki API
+  let wikiAPI = "https://en.wikipedia.org/w/api.php";
+};
