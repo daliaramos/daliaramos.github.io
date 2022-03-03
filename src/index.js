@@ -2,7 +2,25 @@ const row = document.querySelector(".row");
 const userInput = document.querySelector("#breed");
 
 userInput.addEventListener("input", search);
-
+const dogDesc = async (breedName) => {
+  //Wiki API
+  let wikiUrl = "https://en.wikipedia.org/w/api.php";
+  const params = {
+    origin: "*",
+    format: "json",
+    action: "query",
+    prop: "extracts",
+    exchars: 100,
+    exintro: true,
+    explaintext: true,
+    generator: "search",
+    gsrlimit: 1,
+  };
+  params.gsrsearch = breedName;
+  let response = await axios.get(wikiUrl, { params });
+  console.log(response);
+};
+dogDesc("Bull Dog");
 function search(event) {
   event.preventDefault();
   let breedName = userInput.value;
@@ -127,19 +145,4 @@ const createAllCards = async (input) => {
     row.append(card);
   }
   console.log();
-};
-const dogDesc = (url) => {
-  //Wiki API
-  let wikiAPI = "https://en.wikipedia.org/w/api.php";
-  const params = {
-    origin: "*",
-    format: "json",
-    action: "query",
-    prop: "extract",
-    exchars: 100,
-    exintro: true,
-    explaintext: true,
-    generator: "search",
-    gsrlimit: 1,
-  };
 };
