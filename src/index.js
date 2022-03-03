@@ -126,4 +126,5 @@ const createAllCards = async (input) => {
     const card = createCard(breedImage, breedName, breedInfo);
     row.append(card);
   }
+  console.log();
 };
