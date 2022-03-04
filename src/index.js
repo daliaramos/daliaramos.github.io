@@ -10,15 +10,22 @@ const dogDesc = async (breedName) => {
     format: "json",
     action: "query",
     prop: "extracts",
-    exchars: 100,
-    exintro: true,
+    exsentences: 2,
+    exintro: false,
     explaintext: true,
     generator: "search",
     gsrlimit: 1,
   };
   params.gsrsearch = breedName;
-  let response = await axios.get(wikiUrl, { params });
-  console.log(response);
+  let { data } = await axios.get(wikiUrl, { params });
+
+  console.log(data);
+  let desc = data.query.pages;
+
+  let pageID = parseInt(Object.getOwnPropertyNames(desc));
+  let para = document.createElement("p");
+  para.innerHTML = desc[pageID].extract;
+  row.append(para);
 };
 dogDesc("Bull Dog");
 function search(event) {
