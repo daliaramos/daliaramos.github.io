@@ -28,6 +28,7 @@ const dogDesc = async (breedName) => {
   row.append(para);
 };
 dogDesc("Bull Dog");
+
 function search(event) {
   event.preventDefault();
   let breedName = userInput.value;
