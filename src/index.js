@@ -139,25 +139,51 @@ const createAllCards = async (input) => {
         subbreeds.images = breedImg;
 
         subBreeds.push(subbreeds);
+        console.log(subBreeds);
       }
     }
   }
-  console.log(subBreeds);
-  const searchBreedNames = breedNames.filter(
-    (element) => element === `${input}`
-  );
-  input = input.split(" ");
-  const searchImgBreed = breedImgsSrcs.filter(
-    (element) =>
-      element ===
-      `${`https://dog.ceo/api/breed/${input[0].toLowerCase()}/images/random`}`
-  );
-  // searchImgBreed.forEach((element) => console.log(element));
-  for (let i = 0; i < searchBreedNames.length; ++i) {
-    const breedName = searchBreedNames[i];
-    const breedImage = (await (await fetch(searchImgBreed[i])).json()).message;
-    const breedInfo = await dogDesc(breedName);
-    const card = createCard(breedImage, breedName, breedInfo);
-    row.append(card);
+  //console.log(subBreeds);
+
+  if (subBreeds.length > 0) {
+    console.log("dali");
+    const searchBreedNames = subBreeds.filter(
+      (element) => element.breed === `${input}`
+    );
+    console.log(searchBreedNames[0].sub);
+
+    for (let i = 0; i < searchBreedNames.length; ++i) {
+      const breedName = searchBreedNames[i].sub;
+      const breedImage = (
+        await (await fetch(searchBreedNames[i].images)).json()
+      ).message;
+      const breedInfo = await dogDesc(searchBreedNames[i].sub);
+      const card = createCard(breedImage, breedName, breedInfo);
+      row.append(card);
+    }
+
+    return;
+  } else {
+    console.log("in here", allBreedsObj);
+    const searchBreedNames = breedNames.filter(
+      (element) => element === `${input}`
+    );
+    input = input.split(" ");
+    const searchImgBreed = breedImgsSrcs.filter(
+      (element) =>
+        element ===
+        `${`https://dog.ceo/api/breed/${input[0].toLowerCase()}/images/random`}`
+    );
+
+    // searchImgBreed.forEach((element) => console.log(element));
+    for (let i = 0; i < searchBreedNames.length; ++i) {
+      const breedName = searchBreedNames[i];
+      const breedImage = (await (await fetch(searchImgBreed[i])).json())
+        .message;
+      const breedInfo = await dogDesc(breedName);
+      const card = createCard(breedImage, breedName, breedInfo);
+      row.append(card);
+    }
+    return;
   }
 };
