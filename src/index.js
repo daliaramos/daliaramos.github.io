@@ -10,7 +10,7 @@ const dogDesc = async (breedName) => {
     format: "json",
     action: "query",
     prop: "extracts",
-    exsentences: 2,
+    exsentences: 1,
     exintro: false,
     explaintext: true,
     generator: "search",
@@ -19,7 +19,7 @@ const dogDesc = async (breedName) => {
   params.gsrsearch = breedName;
   let { data } = await axios.get(wikiUrl, { params });
 
-  console.log(data);
+  //console.log(data);
   let desc = data.query.pages;
 
   let pageID = parseInt(Object.getOwnPropertyNames(desc));
@@ -106,11 +106,13 @@ const createAllCards = async (input) => {
   const allBreedsObj = (await allBreedsResponse.json()).message;
   const breedNames = [];
   const breedImgsSrcs = [];
+  const subBreeds = [];
   console.log(allBreedsObj);
   for (breed in allBreedsObj) {
     let breedName = capitalizeFirst(breed);
 
     let breedImg = "https://dog.ceo/api/breed/";
+    //  console.log(allBreedsObj);
     if (allBreedsObj[breed].length == 0) {
       breedName = finalizeName(breedName);
       breedImg = breedImg + breed + "/images/random";
@@ -120,6 +122,7 @@ const createAllCards = async (input) => {
       // if the breed has sub-breeds
       // traverse the sub-breeds and add them to the list
       for (let i = 0; i < allBreedsObj[breed].length; ++i) {
+        let subbreeds = {};
         const subBreed = allBreedsObj[breed][i];
         breedName = capitalizeFirst(subBreed) + " " + capitalizeFirst(breed);
         breedName = finalizeName(breedName);
@@ -129,11 +132,17 @@ const createAllCards = async (input) => {
           "/" +
           allBreedsObj[breed][i] +
           "/images/random";
-        breedNames.push(breedName);
-        breedImgsSrcs.push(breedImg);
+        //breedNames.push(breedName);
+        //breedImgsSrcs.push(breedImg);
+        subbreeds.breed = capitalizeFirst(breed);
+        subbreeds.sub = breedName;
+        subbreeds.images = breedImg;
+
+        subBreeds.push(subbreeds);
       }
     }
   }
+  console.log(subBreeds);
   const searchBreedNames = breedNames.filter(
     (element) => element === `${input}`
   );
@@ -143,11 +152,9 @@ const createAllCards = async (input) => {
       element ===
       `${`https://dog.ceo/api/breed/${input[0].toLowerCase()}/images/random`}`
   );
-  searchImgBreed.forEach((element) => console.log(element));
+  // searchImgBreed.forEach((element) => console.log(element));
   for (let i = 0; i < searchBreedNames.length; ++i) {
     const breedName = searchBreedNames[i];
-
-    console.log("for loop", breedName);
     const breedImage = (await (await fetch(searchImgBreed[i])).json()).message;
     const breedInfo = await dogDesc(breedName);
     const card = createCard(breedImage, breedName, breedInfo);
