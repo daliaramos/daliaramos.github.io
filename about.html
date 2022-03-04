@@ -10,82 +10,80 @@
 			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="src/index.css" />
-		<title>DoggoDex</title>
+		<!-- <link rel="stylesheet" href="src/index.css" /> -->
+		<link rel="stylesheet" href="src/about.css" />
+		<title>DoggoDex Developers</title>
 	</head>
 	<body>
 		<main>
 			<div id="main-container">
-				<h1>Meet the developers!</h1>
+				<h1 class="pt-3">Meet the developers!</h1>
+				<h2 class="pb-2">Can you guess their favorite dog breed...?</h2>
 
 				<section class="row justify-content-center">
 					<div class="flip-card col-lg-4" id="nicole">
-						<div class="front">
-							<div class="card">
+						<div class="flip-card-inner">
+							<div class="card flip-card-front">
 								<img
-									class="nicole"
+									id="nicole"
 									src="./images/nicole.jpg"
-									alt="picture of nicole"
+									alt="picture of Nicole"
 								/>
-								<div class="card-body">
-									<h5 class="card-title">Nicole Chen</h5>
-									<p>
-										Her favorite dog is described as "fiercely proud" in its
-										standard. Originally bred for hunting, it's now known for
-										its adorable fluffy butt and unusal vocalizations.
-									</p>
-								</div>
+								<h5 class="flip-card-title">Nicole Chen</h5>
+								<p>
+									Her favorite dog is described as "fiercely proud" in its
+									standard. Originally bred for hunting, it's now known for its
+									adorable fluffy butt and unusal vocalizations.
+								</p>
+							</div>
+							<div class="card flip-card-back">
+								<img
+									id="shiba"
+									src="./images/shiba.jpg"
+									alt="picture of a Shiba Inu"
+								/>
+								<h5 class="flip-card-title">
+									Nicole's favorite dog is the Shiba Inu!
+								</h5>
 							</div>
 						</div>
-
-						<!-- <div class="back">
-							<div class="card">
-								<img
-									class="nicole"
-									src="./images/nicole.jpg"
-									alt="picture of nicole"
-								/>
-								<div class="card-body">
-									<h5 class="card-title">Back of card</h5>
-									<p>Back of card information</p>
-								</div>
-							</div>
-						</div> -->
 					</div>
 
-					<div class="flip-card col-lg-4">
-						<div class="card" id="eleanore">
-							<img
-								class="eleanore"
-								src="./images/eleanore.jpg"
-								alt="picture of eleanore"
-							/>
-							<div class="card-body">
-								<h5 class="card-title">Eleanore Clark</h5>
+					<div class="flip-card col-lg-4" id="eleanore">
+						<div class="flip-card-inner">
+							<div class="card flip-card-front">
+								<img
+									id="nicole"
+									src="./images/eleanore.jpg"
+									alt="picture of Eleanore"
+								/>
+								<h5 class="flip-card-title">Eleanore Clark</h5>
 								<p>
 									Her favorite dog was created to help hunt waterfowl, but its
 									intelligence and unique looks led to wide employ in circuses.
 									Owners know these dogs to be fussy eaters!
 								</p>
 							</div>
+							<div class="card flip-card-back"></div>
 						</div>
 					</div>
 
-					<div class="flip-card col-lg-4">
-						<div class="card" id="dalia">
-							<img
-								class="dalia"
-								src="./images/dalia.jpg"
-								alt="picture of dalia"
-							/>
-							<div class="card-body">
-								<h5 class="card-title">Dalia Ramos-Hernandez</h5>
+					<div class="flip-card col-lg-4" id="dalia">
+						<div class="flip-card-inner">
+							<div class="card flip-card-front">
+								<img
+									id="nicole"
+									src="./images/dalia.jpg"
+									alt="picture of Dalia"
+								/>
+								<h5 class="flip-card-title">Dalia Ramos-Hernandez</h5>
 								<p>
 									Her favorite dog is a fun-sized mix of two breeds. One of the
 									breeds, white and fluffy, was famously beloved by Queen
 									Victoria; the other is the national dog of France.
 								</p>
 							</div>
+							<div class="card flip-card-back"></div>
 						</div>
 					</div>
 				</section>
