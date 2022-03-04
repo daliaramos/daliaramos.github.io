@@ -25,14 +25,13 @@ const dogDesc = async (breedName) => {
   let pageID = parseInt(Object.getOwnPropertyNames(desc));
   let para = document.createElement("p");
   para.innerHTML = desc[pageID].extract;
-  row.append(para);
+  return para;
 };
-dogDesc("Bull Dog");
 
 function search(event) {
   event.preventDefault();
   let breedName = userInput.value;
-  // createAllCards(breedName);
+  createAllCards(breedName);
   //call create all cards.
 }
 
@@ -75,7 +74,7 @@ const createCard = (url, breedName, breedInfo) => {
   let image = document.createElement("img");
   let cardBody = document.createElement("div");
   let cardTitle = document.createElement("h3");
-  let dogInfo = document.createElement("p");
+  //  let dogInfo = document.createElement("p");
   cardSize.setAttribute("class", "col-xs-12 col-sm-6 col-lg-4");
   card.setAttribute("class", "card");
   image.setAttribute("src", `${url}`);
@@ -92,9 +91,9 @@ const createCard = (url, breedName, breedInfo) => {
   cardTitle.setAttribute("class", "card-title");
 
   cardTitle.innerHTML = `${breedName}`;
-  dogInfo.innerHTML = `${breedInfo}`;
+  //dogInfo.innerHTML = `${breedInfo}`;
   cardBody.append(cardTitle);
-  cardBody.append(dogInfo);
+  cardBody.append(breedInfo);
   card.append(image);
   card.append(cardBody);
   cardSize.append(card);
@@ -147,10 +146,11 @@ const createAllCards = async (input) => {
   searchImgBreed.forEach((element) => console.log(element));
   for (let i = 0; i < searchBreedNames.length; ++i) {
     const breedName = searchBreedNames[i];
+
+    console.log("for loop", breedName);
     const breedImage = (await (await fetch(searchImgBreed[i])).json()).message;
-    const breedInfo = "Lorem ipsum";
+    const breedInfo = await dogDesc(breedName);
     const card = createCard(breedImage, breedName, breedInfo);
     row.append(card);
   }
-  console.log();
 };
