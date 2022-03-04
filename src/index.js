@@ -139,31 +139,13 @@ const createAllCards = async (input) => {
         subbreeds.images = breedImg;
 
         subBreeds.push(subbreeds);
-        console.log(subBreeds);
+        //    console.log(subBreeds);
       }
     }
   }
   //console.log(subBreeds);
 
-  if (subBreeds.length > 0) {
-    console.log("dali");
-    const searchBreedNames = subBreeds.filter(
-      (element) => element.breed === `${input}`
-    );
-    console.log(searchBreedNames[0].sub);
-
-    for (let i = 0; i < searchBreedNames.length; ++i) {
-      const breedName = searchBreedNames[i].sub;
-      const breedImage = (
-        await (await fetch(searchBreedNames[i].images)).json()
-      ).message;
-      const breedInfo = await dogDesc(searchBreedNames[i].sub);
-      const card = createCard(breedImage, breedName, breedInfo);
-      row.append(card);
-    }
-
-    return;
-  } else {
+  if (breedNames.includes(input) === true) {
     console.log("in here", allBreedsObj);
     const searchBreedNames = breedNames.filter(
       (element) => element === `${input}`
@@ -184,6 +166,26 @@ const createAllCards = async (input) => {
       const card = createCard(breedImage, breedName, breedInfo);
       row.append(card);
     }
-    return;
+  } else {
+    let arr = subBreeds.filter((element) => {
+      console.log("obj", element.breed.includes(input)) === true;
+    });
+    if (arr.length > 0) {
+      const searchBreedNames = subBreeds.filter(
+        (element) => element.breed === `${input}`
+      );
+
+      console.log(searchBreedNames[0].sub);
+
+      for (let i = 0; i < searchBreedNames.length; ++i) {
+        const breedName = searchBreedNames[i].sub;
+        const breedImage = (
+          await (await fetch(searchBreedNames[i].images)).json()
+        ).message;
+        const breedInfo = await dogDesc(searchBreedNames[i].sub);
+        const card = createCard(breedImage, breedName, breedInfo);
+        row.append(card);
+      }
+    }
   }
 };
