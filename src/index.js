@@ -2,6 +2,14 @@ const row = document.querySelector(".row");
 const userInput = document.querySelector("#breed");
 
 userInput.addEventListener("input", search);
+
+const validExtract = (extract) => {
+  if (extract === undefined) {
+    return "Description Not Found";
+  } else {
+    return extract;
+  }
+};
 const dogDesc = async (breedName) => {
   //Wiki API
   let wikiUrl = "https://en.wikipedia.org/w/api.php";
@@ -17,22 +25,29 @@ const dogDesc = async (breedName) => {
     gsrlimit: 1,
   };
   params.gsrsearch = breedName;
-  let { data } = await axios.get(wikiUrl, { params });
+
+  let para = document.createElement("p");
+  try {
+    let { data } = await axios.get(wikiUrl, { params });
+
+    let desc = data.query.pages;
+    let pageID = parseInt(Object.getOwnPropertyNames(desc));
+    para.innerHTML = desc[pageID].extract;
+    return para;
+  } catch (error) {
+    //delete current card
+    console.log(error);
+  }
 
   //console.log(data);
-  let desc = data.query.pages;
-
-  let pageID = parseInt(Object.getOwnPropertyNames(desc));
-  let para = document.createElement("p");
-  para.innerHTML = desc[pageID].extract;
-  return para;
 };
 
 function search(event) {
   event.preventDefault();
   let breedName = userInput.value;
-  createAllCards(breedName);
   //call create all cards.
+
+  createAllCards(breedName);
 }
 
 const capitalizeFirst = (toCapitalize) => {
@@ -42,7 +57,17 @@ const capitalizeFirst = (toCapitalize) => {
 const finalizeName = (breedName) => {
   return tryAddDogSuffix(fixName(breedName));
 };
-
+const fixTerrierNames = (subBreed) => {
+  if (subBreed === "kerryblue terrier") {
+    return `Kelly Blue Terrier`;
+  } else if (subBreed === "germanlonghair pointer") {
+    return `German Longhaired Pointer`;
+  } else if (subBreed === "westhighland terrier") {
+    return `West Highland Terrier`;
+  } else {
+    return subBreed;
+  }
+};
 const tryAddDogSuffix = (breedName) => {
   str = breedName.toLowerCase();
   if (str.includes("hound") || str.includes("hund") || str.includes("dog"))
@@ -124,29 +149,25 @@ const createAllCards = async (input) => {
       for (let i = 0; i < allBreedsObj[breed].length; ++i) {
         let subbreeds = {};
         const subBreed = allBreedsObj[breed][i];
-        breedName = capitalizeFirst(subBreed) + " " + capitalizeFirst(breed);
-        breedName = finalizeName(breedName);
+        console.log(subBreed);
+        breedName = subBreed + " " + breed;
+        breedName = breedName;
         breedImg =
           "https://dog.ceo/api/breed/" +
           breed +
           "/" +
           allBreedsObj[breed][i] +
           "/images/random";
-        //breedNames.push(breedName);
-        //breedImgsSrcs.push(breedImg);
         subbreeds.breed = capitalizeFirst(breed);
         subbreeds.sub = breedName;
         subbreeds.images = breedImg;
 
         subBreeds.push(subbreeds);
-        //    console.log(subBreeds);
       }
     }
   }
-  //console.log(subBreeds);
-
+  console.log("breeds array", breedNames);
   if (breedNames.includes(input) === true) {
-    console.log("in here", allBreedsObj);
     const searchBreedNames = breedNames.filter(
       (element) => element === `${input}`
     );
@@ -157,32 +178,29 @@ const createAllCards = async (input) => {
         `${`https://dog.ceo/api/breed/${input[0].toLowerCase()}/images/random`}`
     );
 
-    // searchImgBreed.forEach((element) => console.log(element));
     for (let i = 0; i < searchBreedNames.length; ++i) {
       const breedName = searchBreedNames[i];
       const breedImage = (await (await fetch(searchImgBreed[i])).json())
         .message;
+
       const breedInfo = await dogDesc(breedName);
       const card = createCard(breedImage, breedName, breedInfo);
       row.append(card);
     }
   } else {
-    let arr = subBreeds.filter((element) => {
-      console.log("obj", element.breed.includes(input)) === true;
-    });
-    if (arr.length > 0) {
-      const searchBreedNames = subBreeds.filter(
-        (element) => element.breed === `${input}`
-      );
-
-      console.log(searchBreedNames[0].sub);
-
+    const searchBreedNames = subBreeds.filter(
+      (element) => element.breed === `${input}`
+    );
+    console.log(searchBreedNames);
+    if (searchBreedNames.length > 0) {
       for (let i = 0; i < searchBreedNames.length; ++i) {
         const breedName = searchBreedNames[i].sub;
         const breedImage = (
           await (await fetch(searchBreedNames[i].images)).json()
         ).message;
-        const breedInfo = await dogDesc(searchBreedNames[i].sub);
+        let sub = fixTerrierNames(searchBreedNames[i].sub);
+        console.log(sub);
+        const breedInfo = await dogDesc(sub);
         const card = createCard(breedImage, breedName, breedInfo);
         row.append(card);
       }
