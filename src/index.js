@@ -188,15 +188,9 @@ function getAllBreeds(breedNames, breedImgsSrcs, subBreeds, allBreedsObj) {
       for (let i = 0; i < allBreedsObj[breed].length; ++i) {
         let subbreeds = {};
         const subBreed = allBreedsObj[breed][i];
-        breedName = subBreed + " " + breed;
-        breedImg =
-          "https://dog.ceo/api/breed/" +
-          breed +
-          "/" +
-          subBreed +
-          "/images/random";
+        breedImg = `https://dog.ceo/api/breed/${breed}/${subBreed}/images/random`;
         subbreeds.breed = breed;
-        subbreeds.sub = breedName;
+        subbreeds.sub = subBreed + " " + breed;
         subbreeds.images = breedImg;
 
         subBreeds.push(subbreeds);
