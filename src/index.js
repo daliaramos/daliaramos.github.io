@@ -2,7 +2,6 @@ const row = document.querySelector(".row");
 const userInput = document.querySelector("#breed");
 
 userInput.addEventListener("input", search);
-
 const dogDesc = async (breedName) => {
   //Wiki API
   let wikiUrl = "https://en.wikipedia.org/w/api.php";
@@ -41,16 +40,27 @@ function getBreedInfo(data) {
 
 function emptyInput(input) {
   if (input === "" || input === " ") {
+    removeCards();
+    console.log("the input is empty");
     return false;
-  } else return true;
+  } else {
+    return true;
+  }
 }
 
 function search(event) {
   event.preventDefault();
   let breedName = userInput.value;
+  let cardCreated = false;
   //call create all cards.
   if (emptyInput(breedName)) {
-    createAllCards(breedName.toLowerCase());
+    createAllCards(breedName.toLowerCase(), cardCreated);
+  }
+}
+
+function removeCards() {
+  while (row.firstChild) {
+    row.removeChild(row.firstChild);
   }
 }
 
@@ -131,7 +141,8 @@ const createCard = (url, breedName, breedInfo) => {
   return cardSize;
 };
 
-const createAllCards = async (input) => {
+//
+const createAllCards = async (input, cardCreated) => {
   const allBreedsResponse = await fetch("https://dog.ceo/api/breeds/list/all");
   const allBreedsObj = (await allBreedsResponse.json()).message;
   const breedNames = [];
@@ -149,6 +160,7 @@ const createAllCards = async (input) => {
     const breedInfo = await dogDesc(breedName);
     const card = createCard(breedImage, breedName, breedInfo);
     row.append(card);
+    cardCreated = true;
     //    }
   } else {
     const searchBreedNames = subBreeds.filter(
@@ -167,6 +179,8 @@ const createAllCards = async (input) => {
         const card = createCard(breedImage, breedName, breedInfo);
         row.append(card);
       }
+
+      cardCreated = true;
     }
   }
 };
