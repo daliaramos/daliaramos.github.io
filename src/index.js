@@ -30,6 +30,7 @@ const dogDesc = async (breedName) => {
 
   //console.log(data);
 };
+
 function getBreedInfo(data) {
   let para = document.createElement("p");
   let desc = data.query.pages;
@@ -43,6 +44,7 @@ function emptyInput(input) {
     return false;
   } else return true;
 }
+
 function search(event) {
   event.preventDefault();
   let breedName = userInput.value;
@@ -59,6 +61,7 @@ const capitalizeFirst = (toCapitalize) => {
 const finalizeName = (breedName) => {
   return tryAddDogSuffix(fixName(breedName));
 };
+
 const fixSubNames = (subBreed) => {
   if (subBreed === "kerryblue terrier") {
     return `Kelly Blue Terrier`;
@@ -70,6 +73,7 @@ const fixSubNames = (subBreed) => {
     return subBreed;
   }
 };
+
 const tryAddDogSuffix = (breedName) => {
   str = breedName.toLowerCase();
   if (str.includes("hound") || str.includes("hund") || str.includes("dog"))
@@ -137,7 +141,6 @@ const createAllCards = async (input) => {
   getAllBreeds(breedNames, breedImgsSrcs, subBreeds, allBreedsObj);
 
   if (breedNames.includes(input) === true) {
-    // for (let i = 0; i < searchBreedNames.length; ++i) {
     const breedName = input;
     input = input.split(" ");
     const searchImgBreed = `${`https://dog.ceo/api/breed/${input[0].toLowerCase()}/images/random`}`;

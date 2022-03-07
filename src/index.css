@@ -79,6 +79,7 @@ p {
 		margin: 40px 20px;
 	}
 }
+
 @media (max-width: 800px) {
 	.card {
 		margin: 20px 10px;
