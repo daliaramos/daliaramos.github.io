@@ -1,23 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Kalam:wght@700&family=Rancho&display=swap');
-
-:root {
-	--darkbrown: rgb(128, 84, 46);
-	--textbrown: rgb(190, 127, 75);
-	--bgyellow: rgb(252, 239, 185);
-	--bgorange: rgb(221, 172, 117);
-	--offwhite: rgb(255, 252, 241);
-
-	font-size: 1.1em;
-}
-
-#main-container {
-	background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
-}
-
-.row {
-	width: 95%;
-	margin: auto;
-}
+@import "styles.css";
 
 h1,
 h2 {
@@ -99,7 +80,4 @@ img {
 	font-weight: bold;
 	text-align: center;
 	color: var(--textbrown);
-}
-
-p {
 }
