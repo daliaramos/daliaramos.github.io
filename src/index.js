@@ -1,7 +1,7 @@
 const row = document.querySelector(".row");
 const userInput = document.querySelector("#breed");
-
 userInput.addEventListener("input", search);
+
 const dogDesc = async (breedName) => {
   //Wiki API
   let wikiUrl = "https://en.wikipedia.org/w/api.php";
@@ -39,8 +39,6 @@ function getBreedInfo(data) {
 
 function emptyInput(input) {
   if (input === "" || input === " ") {
-    removeCards();
-    console.log("the input is empty");
     return false;
   } else {
     return true;
@@ -54,6 +52,8 @@ function search(event) {
   if (emptyInput(breedName)) {
     createAllCards(breedName.toLowerCase(), cardCreated);
   }
+
+  removeCards();
 }
 
 function removeCards() {
@@ -146,7 +146,7 @@ const createAllCards = async (input, cardCreated) => {
   const subBreeds = [];
 
   getAllBreeds(breedNames, breedImgsSrcs, subBreeds, allBreedsObj);
-
+  console.log(breedNames);
   if (breedNames.includes(input) === true) {
     // for (let i = 0; i < searchBreedNames.length; ++i) {
     const breedName = input;
@@ -176,8 +176,20 @@ const createAllCards = async (input, cardCreated) => {
         const card = createCard(breedImage, breedName, breedInfo);
         row.append(card);
       }
+    } else {
+      const search = subBreeds.filter((element) => element.sub === `${input}`);
 
-      cardCreated = true;
+      if (search.length > 0) {
+        console.log("in one sub");
+        const breedName = search[0].sub;
+        const breedImage = (await (await fetch(search[0].images)).json())
+          .message;
+        let sub = fixSubNames(search[0].sub);
+        console.log(sub);
+        const breedInfo = await dogDesc(sub);
+        const card = createCard(breedImage, breedName, breedInfo);
+        row.append(card);
+      }
     }
   }
 };
@@ -203,7 +215,9 @@ function getAllBreeds(breedNames, breedImgsSrcs, subBreeds, allBreedsObj) {
         subbreeds.breed = breed;
         subbreeds.sub = subBreed + " " + breed;
         subbreeds.images = breedImg;
-
+        // console.log("breed of sub breed", subbreeds.breed);
+        //breedNames.push(subbreeds.sub);
+        //breedImgsSrcs.push(breedImg);
         subBreeds.push(subbreeds);
       }
     }
