@@ -180,7 +180,6 @@ const createAllCards = async (input, cardCreated) => {
       const search = subBreeds.filter((element) => element.sub === `${input}`);
 
       if (search.length > 0) {
-        console.log("in one sub");
         const breedName = search[0].sub;
         const breedImage = (await (await fetch(search[0].images)).json())
           .message;
