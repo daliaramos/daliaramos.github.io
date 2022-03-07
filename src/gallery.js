@@ -2,63 +2,30 @@ import { capitalizeFirst, finalizeName } from "./dog-api.js";
 
 const mainContainer = document.querySelector("#main-container");
 
-const newImgRow = () => {
-
-}
-/*
-//creates a card as dog breed is being searched
-const createCard = (url, breedName, breedInfo) => {
-  let cardSize = document.createElement("div");
-  let card = document.createElement("div");
-  let image = document.createElement("img");
-  let cardBody = document.createElement("div");
-  let cardTitle = document.createElement("h3");
-  let dogInfo = document.createElement("p");
-  cardSize.setAttribute("class", "col-xs-12 col-sm-6 col-lg-4");
-  card.setAttribute("class", "card");
-  image.setAttribute("src", `${url}`);
-  image.setAttribute("class", "card-img-top");
-  switch (breedName[0]){
-    case ("A" || "E" || "I" || "O" || "U"):
-      image.setAttribute("alt", `An ${breedName}`);
-      break;
-    default:
-      image.setAttribute("alt", `A ${breedName}`);
-      break;
-  }
-  cardBody.setAttribute("class", "card-body");
-  cardTitle.setAttribute("class", "card-title");
-
-  cardTitle.innerHTML = `${breedName}`;
-  dogInfo.innerHTML = `${breedInfo}`;
-  cardBody.append(cardTitle);
-  cardBody.append(dogInfo);
-  card.append(image);
-  card.append(cardBody);
-  cardSize.append(card);
-
-  return cardSize;
-};
-*/
-
-const appendBreedRows = async () => {
+// TODO: append names
+// Appends rows containing breed names and images to the main container.
+const appendBreedRows = async (maxImgsPerBreed) => {
   const allBreeds = await getBreeds();
   for (let breed in allBreeds) {
     let newRow = document.createElement("div");
-    newRow.setAttribute("class", "row")
-    newRow = await (newBreedRow(newRow, breed, 0, 3));
+    newRow.setAttribute("class", "ro")
+    newRow = await (newBreedRow(newRow, breed, 0, maxImgsPerBreed));
     mainContainer.append(newRow);
   }
 }
 
+// When given a newRow element,
+// populates that element with up to (maxImg-minImg) images of the breed
+// and returns it.
 const newBreedRow = async (newRow, breed, minImg, maxImg) => {
     let imgUrls = (await (await fetch(`https://dog.ceo/api/breed/${breed}/images`)).json()).message;
+    // This loop breaks as soon as it exhausts all the images available from the API.
     for (let i = minImg; i < maxImg; ++i) {
-      let imgElement = document.createElement("div")
       let img = imgUrls[i];
       if (img === undefined) {
-        img = "https://upload.wikimedia.org/wikipedia/commons/b/b4/Circle_question_mark.png";
+        break;
       }
+      let imgElement = document.createElement("div")
       imgElement.setAttribute("class", "breed-img")
       imgElement.innerHTML = `<img src=${img} />`
       newRow.append(imgElement);
@@ -66,6 +33,7 @@ const newBreedRow = async (newRow, breed, minImg, maxImg) => {
     return newRow;
 }
 
+// Get an array containing the names of all breeds avaliable in the dog.ceo API.
 const getBreeds = async () => {
   const allBreedsResponse = (await fetch('https://dog.ceo/api/breeds/list/all'));
   return (await allBreedsResponse.json()).message;
@@ -116,4 +84,4 @@ const createAllCards = async () => {
 }
 */
 
-appendBreedRows();
+appendBreedRows(10);
