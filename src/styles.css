@@ -26,6 +26,7 @@ p {
 
 #main-container {
     background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
+    background-attachment: fixed;
 }
 
 .row {
@@ -61,6 +62,7 @@ p {
 
     border-radius: 5%;
 
+    aspect-ratio: 1 / 1;
     filter: sepia(10%);
 }
 
