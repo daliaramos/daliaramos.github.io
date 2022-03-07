@@ -1,39 +1,6 @@
+import { capitalizeFirst, finalizeName } from "./dog-api.js";
+
 const row = document.querySelector(".row");
-
-const capitalizeFirst = (toCapitalize) =>
-{
-  return(toCapitalize[0].toUpperCase() + toCapitalize.slice(1));
-}
-
-const finalizeName = (breedName) => {
- return (tryAddDogSuffix(fixName(breedName)));
-}
-
-const tryAddDogSuffix = (breedName) => {
-  str = breedName.toLowerCase();
-  if (str.includes("hound") || str.includes("hund")
-    || str.includes("dog"))
-    return breedName;
-  else 
-    return (breedName + " Dog");
-}
-
-const fixName = (breedName) => {
-  switch (breedName) {
-    case "Shepherd Australian":
-      breedName = "Australian Shepherd";
-      break;
-    case "Lapphund Finnish":
-      breedName = "Finnish Lapphund";
-      break;
-    case "Mix":
-      breedName = "Mixed";
-      break;
-    default:
-      break;
-  }
-  return breedName;
-}
 
 //creates a card as dog breed is being searched
 const createCard = (url, breedName, breedInfo) => {
@@ -76,7 +43,7 @@ const createAllCards = async () => {
     const breedImgsSrcs = [];
 
     console.log(allBreedsObj);
-    for (breed in allBreedsObj) {
+    for (let breed in allBreedsObj) {
       let breedName = capitalizeFirst(breed);
       let breedImg = "https://dog.ceo/api/breed/";
 
