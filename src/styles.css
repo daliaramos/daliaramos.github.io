@@ -6,6 +6,10 @@
     --bgyellow: rgb(252, 239, 185);
     --bgorange: rgb(221, 172, 117);
     --offwhite: rgb(255, 252, 241);
+    --ash: rgb(77, 66, 57);
+
+    --olivelight: rgb(98, 135, 89);
+    --olivedark: rgb(62, 85, 57);
 
     font-size: 1.1em;
 }

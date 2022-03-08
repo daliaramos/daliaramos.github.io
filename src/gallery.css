@@ -1,17 +1,73 @@
 @import "styles.css";
 
-/*
-img {
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
+#main-container {
+    background-color: var(--offwhite);
+    background-image: none;
+    background-image: linear-gradient(180deg, blanchedalmond, var(--offwhite));
+    background-attachment: fixed;
 }
-*/
 
-.ro {
-    background-color: black;
-    margin: 40px;
-    padding: 0px 10px 0px 10px;
+body {
+    background-color: var(--offwhite);
+    background-image: none;
+    background-image: linear-gradient(180deg, blanchedalmond, var(--offwhite));
+    background-attachment: fixed;
+}
+
+h1 {
+    margin: 0px;
+    padding: 20px;
+    color: var(--ash);
+}
+
+.heading-container {
+    height: fit-content;
+    width: 50%;
+    margin: 40px auto;
+    border-radius: 12px;
+    border: 4px solid var(--bgorange);
+    background-color: var(--bgyellow);
+    background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
+    background-attachment: fixed;
+}
+
+.breed-name-container {
+    background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
+    background-attachment: fixed;
+    min-height: 400px;
+    width: 60px;
+    display: inline-block;
+    vertical-align: top;
+    position: sticky;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.breed-name {
+    color: var(--ash);
+    font-size: 2.2em;
+    font-family: 'Rancho', cursive;
+    font-weight: bold;
+    writing-mode: vertical-rl;
+    transform: rotate(0deg);
+    text-transform: uppercase;
+
+    position: relative;
+    top: 20%;
+}
+
+.r {
+    border-radius: 20px;
+    border: 4px solid var(--bgorange);
+    background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
+    background-attachment: fixed;
+    margin: 20px 40px 40px 40px;
+}
+
+.scroll-row {
+    margin: 0px 40px;
+    padding: 40px 0px;
     overflow: auto;
     white-space: nowrap;
 }
@@ -19,11 +75,30 @@ img {
 .breed-img {
     display: inline;
     width: fit-content;
+    margin-left: 40px;
 }
 
 img {
     width: 400px;
     height: 400px;
     object-fit: cover;
-    margin: 20px 10px;
+    border-radius: 20px;
+    filter: sepia(15%);
+}
+
+/* For Firefox */
+.scroll-row {
+    scrollbar-width: 12px;
+    scrollbar-color: var(--olivelight) var(--bgyellow);
+}
+
+/* For other browsers*/
+.scroll-row::-webkit-scrollbar {
+    height: 12px;
+    background-color: var(--bgyellow); /* or add it to the track */
+}
+  
+/* Add a thumb */
+.scroll-row::-webkit-scrollbar-thumb {
+    background: var(--olivelight);
 }
