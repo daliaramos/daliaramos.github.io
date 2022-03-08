@@ -1,4 +1,4 @@
-import { capitalizeFirst, finalizeName } from "./dog-api.js";
+import { capitalizeFirst, finalizeName, fixSubNames } from "./dog-api.js";
 
 const row = document.querySelector(".row");
 const userInput = document.querySelector("#breed");
