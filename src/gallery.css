@@ -1,25 +1,35 @@
 @import "styles.css";
 
 #main-container {
-    background-image: linear-gradient(180deg, var(--ash), var(--darkbrown));
+    background-color: var(--offwhite);
+    background-image: none;
+    background-image: linear-gradient(180deg, blanchedalmond, var(--offwhite));
+    background-attachment: fixed;
+}
+
+body {
+    background-color: var(--offwhite);
+    background-image: none;
+    background-image: linear-gradient(180deg, blanchedalmond, var(--offwhite));
     background-attachment: fixed;
 }
 
 h1 {
     margin: 0px;
     padding: 20px;
-    color: var(--bgyellow);
+    color: var(--ash);
 }
 
-/*
 .heading-container {
-    height: 100px;
-    width: fit-content;
+    height: fit-content;
+    width: 50%;
     margin: 40px auto;
     border-radius: 12px;
+    border: 4px solid var(--bgorange);
     background-color: var(--bgyellow);
+    background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
+    background-attachment: fixed;
 }
-*/
 
 .breed-name-container {
     background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
@@ -49,7 +59,7 @@ h1 {
 
 .r {
     border-radius: 20px;
-    border: 1px solid var(--ash);
+    border: 4px solid var(--bgorange);
     background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
     background-attachment: fixed;
     margin: 20px 40px 40px 40px;
