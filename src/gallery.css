@@ -1,16 +1,25 @@
 @import "styles.css";
 
-/*
-img {
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
-}
-*/
 #main-container {
     background-image: linear-gradient(180deg, var(--ash), var(--darkbrown));
     background-attachment: fixed;
 }
+
+h1 {
+    margin: 0px;
+    padding: 20px;
+    color: var(--bgyellow);
+}
+
+/*
+.heading-container {
+    height: 100px;
+    width: fit-content;
+    margin: 40px auto;
+    border-radius: 12px;
+    background-color: var(--bgyellow);
+}
+*/
 
 .breed-name-container {
     background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
@@ -19,11 +28,10 @@ img {
     width: 53px;
     display: inline-block;
     vertical-align: top;
-
     position: sticky;
     left: 0;
-
     overflow: hidden;
+    z-index: 1;
 }
 
 .breed-name {
@@ -38,7 +46,6 @@ img {
     position: relative;
     top: 20%;
 }
-
 
 .r {
     border-radius: 8px;
@@ -72,24 +79,19 @@ img {
     filter: sepia(10%);
 }
 
-/* Works on Firefox */
-.r {
-    scrollbar-width: thin;
+/* For Firefox */
+.scroll-row {
+    scrollbar-width: 12px;
     scrollbar-color: var(--olivelight) var(--bgyellow);
 }
 
-/*
-  .r::-webkit-scrollbar {
-    width: 12px;
+/* For other browsers*/
+.scroll-row::-webkit-scrollbar {
+    height: 12px;
+    background-color: var(--bgyellow); /* or add it to the track */
 }
   
-  .r::-webkit-scrollbar-track {
-    background: orange;
+/* Add a thumb */
+.scroll-row::-webkit-scrollbar-thumb {
+    background: var(--olivelight);
 }
-  
-  .r::-webkit-scrollbar-thumb {
-    background-color: blue;
-    border-radius: 20px;
-    border: 3px solid orange;
-}
-*/
