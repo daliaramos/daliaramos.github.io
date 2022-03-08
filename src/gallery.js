@@ -39,8 +39,9 @@ const newBreedName = (breedName) => {
 // populates that element with up to (maxImg-minImg) images of the breed
 // and returns it.
 const newBreedImgRow = async (newRow, breed, minImg, maxImg) => {
-    let newImgRow = document.createElement("div")
-    newImgRow.setAttribute("class", "scroll-row")
+    let newImgRow = document.createElement("div");
+    newImgRow.setAttribute("class", "scroll-row");
+    newImgRow.setAttribute("tabindex", "0");
     let nameElement = newBreedName(breed);
     newImgRow.append(nameElement);
     let imgUrls = (await (await fetch(`https://dog.ceo/api/breed/${breed}/images`)).json()).message;
@@ -53,7 +54,7 @@ const newBreedImgRow = async (newRow, breed, minImg, maxImg) => {
       let imgElement = document.createElement("div")
       imgElement.setAttribute("class", "breed-img")
       let n = i+1;
-      imgElement.innerHTML = `<img src=${img} alt="Sample ${n} of ${breed} dog gallery" />`
+      imgElement.innerHTML = `<img src=${img} alt="Sample ${n} from gallery of ${breed} dogs" />`
       newImgRow.append(imgElement);
     }
     newRow.append(newImgRow);
