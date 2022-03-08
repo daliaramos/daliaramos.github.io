@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Kalam:wght@700&family=Rancho&display=swap');
+
+:root {
+    --darkbrown: rgb(128, 84, 46);
+    --textbrown: rgb(190, 127, 75);
+    --bgyellow: rgb(252, 239, 185);
+    --bgorange: rgb(221, 172, 117);
+    --offwhite: rgb(255, 252, 241);
+
+    font-size: 1.1em;
+}
+
+h1 {
+    padding-top: 4%;
+    text-align: center;
+
+    font-family: 'Rancho';
+    font-size: 3.5em;
+    color: var(--darkbrown);
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+#main-container {
+    background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
+    background-attachment: fixed;
+}
+
+.row {
+    width: 95%;
+    margin: auto;
+}

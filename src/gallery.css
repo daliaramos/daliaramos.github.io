@@ -1,0 +1,29 @@
+@import "styles.css";
+
+/*
+img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+*/
+
+.ro {
+    background-color: black;
+    margin: 40px;
+    padding: 0px 10px 0px 10px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.breed-img {
+    display: inline;
+    width: fit-content;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    margin: 20px 10px;
+}
