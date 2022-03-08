@@ -53,6 +53,7 @@ const newBreedImgRow = async (newRow, breed, minImg, maxImg) => {
       }
       let imgElement = document.createElement("div")
       imgElement.setAttribute("class", "breed-img")
+      imgElement.setAttribute("onclick", "viewModal()")
       let n = i+1;
       imgElement.innerHTML = `<img src=${img} alt="Sample ${n} from gallery of ${breed} dogs" />`
       newImgRow.append(imgElement);
