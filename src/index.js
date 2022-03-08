@@ -161,7 +161,7 @@ const createAllCards = async (input, cardCreated) => {
 };
 
 function getAllBreeds(breedNames, breedImgsSrcs, subBreeds, allBreedsObj) {
-  for (breed in allBreedsObj) {
+  for (let breed in allBreedsObj) {
     let breedName = breed;
 
     let breedImg = "https://dog.ceo/api/breed/";
