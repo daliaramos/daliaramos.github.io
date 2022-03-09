@@ -1,3 +1,5 @@
+import { capitalizeFirst, finalizeName, fixSubNames } from "./dog-api.js";
+
 const breedNames = [];
 const breedImgsSrcs = [];
 const subBreeds = [];
@@ -13,11 +15,11 @@ getResponse().then((data) => {
 });
 
 const row = document.querySelector(".row");
-const all = document.querySelector("#all");
-const random = document.querySelector("#rand");
+//const all = document.querySelector("#all");
+//const random = document.querySelector("#rand");
 const userInput = document.querySelector("#breed");
 userInput.addEventListener("input", search);
-random.addEventListener("click", randomImage);
+//random.addEventListener("click", randomImage);
 
 const dogDesc = async (breedName) => {
   //Wiki API
@@ -64,70 +66,32 @@ function emptyInput(input) {
 function search(event) {
   event.preventDefault();
   let breedName = userInput.value;
-  let cardCreated = false;
   //call create all cards.
   if (emptyInput(breedName)) {
-    createAllCards(breedName.toLowerCase(), cardCreated);
+    createAllCards(breedName.toLowerCase());
   }
 
-  removeCards(cardCreated);
+  removeCards();
 }
 
-function removeCards(cardCreated) {
+function removeCards() {
   while (row.firstChild) {
     row.removeChild(row.firstChild);
   }
 }
-
-const capitalizeFirst = (toCapitalize) => {
-  return toCapitalize[0].toUpperCase() + toCapitalize.slice(1);
-};
-
-const finalizeName = (breedName) => {
-  return tryAddDogSuffix(fixName(breedName));
-};
-const fixSubNames = (subBreed) => {
-  if (subBreed === "kerryblue terrier") {
-    return `Kelly Blue Terrier`;
-  } else if (subBreed === "germanlonghair pointer") {
-    return `German Longhaired Pointer`;
-  } else if (subBreed === "westhighland terrier") {
-    return `West Highland Terrier`;
-  } else {
-    return subBreed;
-  }
-};
-const tryAddDogSuffix = (breedName) => {
-  str = breedName.toLowerCase();
-  if (str.includes("hound") || str.includes("hund") || str.includes("dog"))
-    return breedName;
-  else return breedName + " Dog";
-};
-
-const fixName = (breedName) => {
-  switch (breedName) {
-    case "Shepherd Australian":
-      breedName = "Australian Shepherd";
-      break;
-    case "Lapphund Finnish":
-      breedName = "Finnish Lapphund";
-      break;
-    case "Mix":
-      breedName = "Mixed";
-      break;
-    default:
-      break;
-  }
-  return breedName;
-};
-
 //creates a card as dog breed is being searched
-const createCard = (url, breedName, breedInfo) => {
+function createCard(url, breedName, breedInfo) {
   let cardSize = document.createElement("div");
   let card = document.createElement("div");
   let image = document.createElement("img");
   let cardBody = document.createElement("div");
   let cardTitle = document.createElement("h3");
+  let cardButton = document.createElement("button");
+
+  cardButton.setAttribute("type", "button");
+  cardButton.setAttribute("class", "btn btn-primary");
+  cardButton.innerHTML = "More information";
+
   //  let dogInfo = document.createElement("p");
   cardSize.setAttribute("class", "col-xs-12 col-sm-6 col-lg-4");
   card.setAttribute("class", "card");
@@ -151,10 +115,11 @@ const createCard = (url, breedName, breedInfo) => {
   cardBody.append(breedInfo);
   card.append(image);
   card.append(cardBody);
+  card.append(cardButton);
   cardSize.append(card);
 
   return cardSize;
-};
+}
 
 //
 
@@ -197,7 +162,7 @@ const createAllCards = async (input) => {
 };
 
 function getAllBreeds(breedNames, breedImgsSrcs, subBreeds, allBreedsObj) {
-  for (breed in allBreedsObj) {
+  for (let breed in allBreedsObj) {
     let breedName = breed;
 
     let breedImg = "https://dog.ceo/api/breed/";
@@ -245,7 +210,4 @@ function getImage(input) {
     return image;
   });
   return breedImage;
-}
-function randomImage() {
-  createAllCards();
 }

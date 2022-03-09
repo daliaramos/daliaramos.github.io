@@ -1,37 +1,4 @@
-/* test */
-@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Kalam:wght@700&family=Rancho&display=swap');
-:root {
-	--darkbrown: rgb(128, 84, 46);
-	--textbrown: rgb(190, 127, 75);
-	--bgyellow: rgb(252, 239, 185);
-	--bgorange: rgb(221, 172, 117);
-	--offwhite: rgb(255, 252, 241);
-
-	font-size: 1.1em;
-}
-
-h1 {
-	padding-top: 4%;
-	text-align: center;
-
-	font-family: 'Rancho';
-	font-size: 3.5em;
-	color: var(--darkbrown);
-	font-weight: bold;
-}
-
-p {
-	margin-bottom: 0px;
-}
-
-#main-container {
-	background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
-}
-
-.row {
-	width: 95%;
-	margin: auto;
-}
+@import 'styles.css';
 
 .card {
 	margin: 40px;
@@ -47,7 +14,6 @@ p {
     since it has very strange dimensions. */
 	font-size: 1.4em;
 	line-height: 130%;
-	text-align: justify;
 	color: var(--textbrown);
 }
 
@@ -61,6 +27,7 @@ p {
 
 	border-radius: 5%;
 
+	aspect-ratio: 1 / 1;
 	filter: sepia(10%);
 }
 
@@ -74,11 +41,30 @@ p {
 	color: var(--textbrown);
 }
 
+p {
+	margin: auto;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+.btn-primary {
+	color: var(--darkbrown);
+	background-color: var(--bgorange);
+	border-color: var(--darkbrown);
+	font-size: 0.75em;
+}
+
+.btn-primary:hover {
+	background-color: var(--ash);
+	border-color: var(--ash);
+}
+
 @media (max-width: 1200px) {
 	.card {
 		margin: 40px 20px;
 	}
 }
+
 @media (max-width: 800px) {
 	.card {
 		margin: 20px 10px;
