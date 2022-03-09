@@ -14,11 +14,48 @@
 <body>
 	<main>
 		<div id="main-container">
-			<div class="input-group">
-				<input id="breed" type="text" class="form-control rounded" placeholder="Search"
-					aria-label="Search" aria-describedby="search-addon" />
+			<nav>
+				<div class="nav nav-tabs active" id="nav-tab" role="tablist">
+					<button class="nav-link" id="nav-home-tab" data-bs-toggle="tab"
+						data-bs-target="#nav-home" type="button" role="tab"
+						aria-controls="nav-home" aria-selected="true">About</button>
 
+
+					<button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+						data-bs-target="#nav-profile" type="button" role="tab"
+						aria-controls="nav-profile" aria-selected="false">Search</button>
+
+
+					<button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+						data-bs-target="#nav-contact" type="button" role="tab"
+						aria-controls="nav-contact" aria-selected="false">Gallery</button>
+				</div>
+			</nav>
+
+			<div class="tab-content" id="nav-tabContent">
+
+				<div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+					aria-labelledby="nav-home-tab">
+					about
+				</div>
+				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+					<div class="input-group">
+						<input id="breed" type="text" class="form-control rounded"
+							placeholder="Search" aria-label="Search"
+							aria-describedby="search-addon" />
+					</div>
+				</div>
+
+
+				<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+					bye</div>
 			</div>
+
+
+
+
+
+
 			<div>
 				<!--
 				<button id="rand">Random Dog Breed</button>

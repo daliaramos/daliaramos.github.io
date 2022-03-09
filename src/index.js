@@ -20,6 +20,9 @@ const row = document.querySelector(".row");
 const userInput = document.querySelector("#breed");
 userInput.addEventListener("input", search);
 //random.addEventListener("click", randomImage);
+const about = document.querySelector("#nav-home-tab");
+about.addEventListener("click", goToAbout);
+let page = document.querySelector("#nav-home");
 
 const dogDesc = async (breedName) => {
   //Wiki API
@@ -203,4 +206,35 @@ function getImage(input) {
     return image;
   });
   return breedImage;
+}
+
+function goToAbout() {
+  if (searchClassName(searchPage) === true) {
+  } else {
+  }
+  searchClassName(galleryPage);
+}
+
+function searchClassName(divName) {
+  if (divName.classList.contains(className) === true) {
+    return true;
+  } else {
+    return false;
+  }
+}
+function showPage(buttonId, pageDiv) {
+  //button
+  buttonId.classList.add("active");
+  buttonId.style.ariaSelected = "true";
+
+  //content
+  pageDiv.classList.add("show");
+  pageDiv.classList.add("active");
+}
+function togglePage(divId, pageDiv) {
+  divId.classList.remove("active");
+  divId.style.ariaSelected = "false";
+
+  pageDiv.classList.add("show");
+  pageDiv.classList.add("active");
 }
