@@ -71,7 +71,7 @@ function search(event) {
     createAllCards(breedName.toLowerCase());
   }
 
-  removeCards(cardCreated);
+  removeCards();
 }
 
 function removeCards() {
