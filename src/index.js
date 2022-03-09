@@ -20,6 +20,16 @@ const row = document.querySelector(".row");
 const userInput = document.querySelector("#breed");
 userInput.addEventListener("input", search);
 //random.addEventListener("click", randomImage);
+const about = document.querySelector("#nav-home-tab");
+const searchButtn = document.querySelector("#nav-search-tab");
+const galleryButtn = document.querySelector("#nav-gallery-tab");
+about.addEventListener("click", goToAbout);
+searchButtn.addEventListener("click", goToSearch);
+galleryButtn.addEventListener("click", goToGallery);
+
+let aboutPage = document.querySelector("#nav-home");
+let searchPage = document.querySelector("#search");
+let galleryPage = document.querySelector("#gallery");
 
 const dogDesc = async (breedName) => {
   //Wiki API
@@ -210,4 +220,59 @@ function getImage(input) {
     return image;
   });
   return breedImage;
+}
+
+function goToAbout() {
+  if (searchClassName(searchPage) === true) {
+    togglePage(searchButtn, searchPage);
+    showPage(about, aboutPage);
+  } else {
+    togglePage(galleryButtn, galleryPage);
+    showPage(about, aboutPage);
+  }
+  //}
+}
+
+function goToGallery() {
+  if (searchClassName(searchPage) === true) {
+    togglePage(searchButtn, searchPage);
+    showPage(galleryButtn, galleryPage);
+  } else {
+    togglePage(about, aboutPage);
+    showPage(galleryButtn, galleryPage);
+  }
+}
+
+function goToSearch() {
+  if (searchClassName(galleryPage) === true) {
+    togglePage(galleryButtn, galleryPage);
+    showPage(searchButtn, searchPage);
+  } else {
+    togglePage(about, aboutPage);
+    showPage(searchButtn, searchPage);
+  }
+}
+
+function searchClassName(divName) {
+  if (divName.classList.contains("active") === true) {
+    return true;
+  } else {
+    return false;
+  }
+}
+function showPage(buttonId, pageDiv) {
+  //button
+  buttonId.classList.add("active");
+  buttonId.style.ariaSelected = "true";
+
+  //content
+  pageDiv.classList.add("show");
+  pageDiv.classList.add("active");
+}
+function togglePage(divId, pageDiv) {
+  divId.classList.remove("active");
+  divId.style.ariaSelected = "false";
+
+  pageDiv.classList.remove("show");
+  pageDiv.classList.remove("active");
 }
