@@ -1,12 +1,5 @@
 @import "styles.css";
 
-#main-container {
-    background-color: var(--offwhite);
-    background-image: none;
-    background-image: linear-gradient(180deg, blanchedalmond, var(--offwhite));
-    background-attachment: fixed;
-}
-
 body {
     background-color: var(--offwhite);
     background-image: none;
