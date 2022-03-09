@@ -86,6 +86,12 @@ function createCard(url, breedName, breedInfo) {
   let image = document.createElement("img");
   let cardBody = document.createElement("div");
   let cardTitle = document.createElement("h3");
+  let cardButton = document.createElement("button");
+
+  cardButton.setAttribute("type", "button");
+  cardButton.setAttribute("class", "btn btn-primary");
+  cardButton.innerHTML = "More information";
+
   //  let dogInfo = document.createElement("p");
   cardSize.setAttribute("class", "col-xs-12 col-sm-6 col-lg-4");
   card.setAttribute("class", "card");
@@ -109,6 +115,7 @@ function createCard(url, breedName, breedInfo) {
   cardBody.append(breedInfo);
   card.append(image);
   card.append(cardBody);
+  card.append(cardButton);
   cardSize.append(card);
 
   return cardSize;
