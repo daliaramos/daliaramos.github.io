@@ -11,6 +11,8 @@
     --olivelight: rgb(98, 135, 89);
     --olivedark: rgb(62, 85, 57);
 
+    --linkblue: rgb(94, 130, 132);
+
     font-size: 1.1em;
 }
 
@@ -32,6 +34,11 @@ body {
     background-image: linear-gradient(225deg, var(--bgorange), var(--bgyellow));
     background-attachment: fixed;
     min-height: 100vh;
+}
+
+a {
+    color: var(--linkblue);
+    font-style: bold;
 }
 
 .row {
