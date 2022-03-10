@@ -3,8 +3,6 @@ let text = "Can you guess their favorite dog breed...?";
 let speed = 50;
 const about = document.querySelector("#nav-gallery-tab");
 const search = document.querySelector("#nav-search-tab");
-about.addEventListener("click", handleGal);
-search.addEventListener("click", handleSearch);
 
 window.onload = function typeWriter() {
   if (i < text.length) {
@@ -13,6 +11,9 @@ window.onload = function typeWriter() {
     setTimeout(typeWriter, speed);
   }
 };
+
+about.addEventListener("click", handleGal);
+search.addEventListener("click", handleSearch);
 
 typeWriter();
 
