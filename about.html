@@ -1,123 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/about.css" />
+    <script src="src/about.js"></script>
+    <script defer src="src/index.js" type="module"></script>
+    <title>DoggoDex Developers</title>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-	<link rel="stylesheet" href="src/about.css" />
-	<script src="src/about.js"></script>
-	<script defer src="src/index.js" type="module"></script>
-	<title>DoggoDex Developers</title>
+    <script>
+      function galLocation() {
+        window.location.href = "gallery.html";
+      }
+    </script>
+    <script>
+      function searLocation() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </head>
 
-	<script>
-		function galLocation() {
-			window.location.href = "gallery.html"
-		}
+  <body>
+    <main>
+      <div id="main-container">
+        <h1 class="pt-3">Meet the developers!</h1>
+        <h2 class="pb-2" id="typing"></h2>
+        <div
+          class="nav nav-tabs justify-content-center"
+          id="nav-tab"
+          role="tablist"
+        >
+          <button
+            class="nav-link d-inline"
+            id="nav-home-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#search"
+            type="button"
+            role="tab"
+            aria-controls="search"
+            aria-selected="false"
+          >
+            Home
+          </button>
 
-	</script>
-	<script>
-		function searLocation() {
-			window.location.href = "index.html"
-		}
-	</script>
-</head>
+          <button
+            class="nav-link"
+            id="nav-search-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#search"
+            type="button"
+            role="tab"
+            aria-controls="search"
+            aria-selected="false"
+          >
+            Search
+          </button>
 
-<body>
-	<main>
-		<div id="main-container">
-			<h1 class="pt-3">Meet the developers!</h1>
-			<h2 class="pb-2" id="typing"></h2>
-			<div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button
+            class="nav-link"
+            id="nav-gallery-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#gallery"
+            type="button"
+            role="tab"
+            aria-controls="gallery"
+            aria-selected="true"
+          >
+            Gallery
+          </button>
 
-				<button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#search"
-					type="button" role="tab" aria-controls="search"
-					aria-selected="false">Home</button>
+          <button
+            class="nav-link"
+            id="nav-about-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-home"
+            type="button"
+            role="tab"
+            aria-controls="nav-home"
+            aria-selected="false"
+          >
+            About Us
+          </button>
+        </div>
+        <section class="row justify-content-center">
+          <div class="flip-card col-lg-4" id="nicole">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  id="nicole"
+                  src="./images/nicole.jpg"
+                  alt="picture of Nicole"
+                />
+                <h5 class="flip-card-title">Nicole Chen</h5>
+                <p>
+                  Her favorite dog is described as "fiercely proud" in its
+                  standard. Originally bred for hunting, it's now known for its
+                  adorable fluffy butt and unusal vocalizations.
+                </p>
+              </div>
+              <div class="flip-card-back">
+                <img
+                  id="shiba"
+                  src="./images/shiba.jpg"
+                  alt="picture of a Shiba Inu"
+                />
+                <h5 class="flip-card-title">
+                  Nicole's favorite dog is the Shiba Inu!
+                </h5>
+              </div>
+            </div>
+          </div>
 
+          <div class="flip-card col-lg-4" id="eleanore" style="height: 80vh">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  id="nicole"
+                  src="./images/eleanore.jpg"
+                  alt="picture of Eleanore"
+                />
+                <h5 class="flip-card-title">Eleanore Clark</h5>
+                <p>
+                  Her favorite dog was created to help hunt waterfowl, but its
+                  intelligence and unique looks led to wide employ in circuses.
+                  Owners know these dogs to be fussy eaters!
+                </p>
+              </div>
+              <div class="flip-card-back">
+                <img
+                  id="poodle"
+                  src="./images/poodle.jpg"
+                  alt="picture of a Poodle"
+                />
+                <h5 class="flip-card-title">
+                  Eleanore's favorite dog is the Poodle!
+                </h5>
+              </div>
+            </div>
+          </div>
 
-				<button class="nav-link" id="nav-search-tab" data-bs-toggle="tab"
-					data-bs-target="#search" type="button" role="tab" aria-controls="search"
-					aria-selected="false">Search</button>
-
-
-				<button class="nav-link" id="nav-gallery-tab" data-bs-toggle="tab"
-					data-bs-target="#gallery" type="button" role="tab" aria-controls="gallery"
-					aria-selected="true">Gallery</button>
-
-				<button class="nav-link" id="nav-about-tab" data-bs-toggle="tab"
-					data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-					aria-selected="false">About Us</button>
-			</div>
-			</nav>
-			<section class="row justify-content-center">
-				<div class="flip-card col-lg-4" id="nicole">
-					<div class="flip-card-inner">
-						<div class="flip-card-front">
-							<img id="nicole" src="./images/nicole.jpg" alt="picture of Nicole" />
-							<h5 class="flip-card-title">Nicole Chen</h5>
-							<p>
-								Her favorite dog is described as "fiercely proud" in its
-								standard. Originally bred for hunting, it's now known
-								for its
-								adorable fluffy butt and unusal vocalizations.
-							</p>
-						</div>
-						<div class="flip-card-back">
-							<img id="shiba" src="./images/shiba.jpg" alt="picture of a Shiba Inu" />
-							<h5 class="flip-card-title">
-								Nicole's favorite dog is the Shiba Inu!
-							</h5>
-						</div>
-					</div>
-				</div>
-
-				<div class="flip-card col-lg-4" id="eleanore" style="height: 80vh">
-					<div class="flip-card-inner">
-						<div class="flip-card-front">
-							<img id="nicole" src="./images/eleanore.jpg" alt="picture of Eleanore" />
-							<h5 class="flip-card-title">Eleanore Clark</h5>
-							<p>
-								Her favorite dog was created to help hunt waterfowl, but
-								its
-								intelligence and unique looks led to wide employ in
-								circuses.
-								Owners know these dogs to be fussy eaters!
-							</p>
-						</div>
-						<div class="flip-card-back">
-							<img id="poodle" src="./images/poodle.jpg" alt="picture of a Poodle" />
-							<h5 class="flip-card-title">
-								Eleanore's favorite dog is the Poodle!
-							</h5>
-						</div>
-					</div>
-				</div>
-
-				<div class="flip-card col-lg-4" id="dalia" style="height: 80vh">
-					<div class="flip-card-inner">
-						<div class="flip-card-front">
-							<img id="nicole" src="./images/dalia.jpg" alt="picture of Dalia" />
-							<h5 class="flip-card-title">Dalia Ramos-Hernandez</h5>
-							<p>
-								Her favorite dog is a fun-sized mix of two breeds. One
-								of the
-								breeds, white and fluffy, was famously beloved by Queen
-								Victoria; the other is the national dog of France.
-							</p>
-						</div>
-						<div class="flip-card-back">
-							<img id="pomapoo" src="./images/pomapoo.jpg" alt="picture of a Pomapoo" />
-							<h5 class="flip-card-title">
-								Dalia's favorite dog is the Pomapoo!
-							</h5>
-						</div>
-					</div>
-				</div>
-			</section>
-		</div>
-	</main>
-</body>
-
+          <div class="flip-card col-lg-4" id="dalia" style="height: 80vh">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  id="nicole"
+                  src="./images/dalia.jpg"
+                  alt="picture of Dalia"
+                />
+                <h5 class="flip-card-title">Dalia Ramos-Hernandez</h5>
+                <p>
+                  Her favorite dog is a fun-sized mix of two breeds. One of the
+                  breeds, white and fluffy, was famously beloved by Queen
+                  Victoria; the other is the national dog of France.
+                </p>
+              </div>
+              <div class="flip-card-back">
+                <img
+                  id="pomapoo"
+                  src="./images/pomapoo.jpg"
+                  alt="picture of a Pomapoo"
+                />
+                <h5 class="flip-card-title">
+                  Dalia's favorite dog is the Pomapoo!
+                </h5>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>
