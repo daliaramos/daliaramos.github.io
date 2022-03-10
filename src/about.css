@@ -52,6 +52,7 @@ img {
 
 .flip-card-front,
 .flip-card-back {
+	min-height: 400px;
 	padding: 5%;
 	position: absolute;
 	-webkit-backface-visibility: hidden;
