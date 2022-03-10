@@ -105,6 +105,10 @@ a:hover {
     height: 200px;
     font-size: 4em;
   }
+
+  .footer {
+    display: none;
+  }
 }
 
 @media (max-width: 500px) {
