@@ -13,7 +13,4 @@ Doggodex is a web application that centered around dog breeds. It allows the use
 - Javascript
 ### APIs
 - Dogs - https://dog.ceo/dog-api/
-- Dog Facts (?)
-- Petfinder (?)
-- Google Trends (?)
 - Wikipedia - https://en.wikipedia.org/w/api.php
