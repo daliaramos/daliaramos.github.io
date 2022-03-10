@@ -23,10 +23,11 @@ userInput.addEventListener("input", search);
 const about = document.querySelector("#nav-about-tab");
 //const searchButtn = document.querySelector("#nav-search-tab");
 const galleryButtn = document.querySelector("#nav-gallery-tab");
+const home = document.querySelector("#nav-home-tab");
 about.addEventListener("click", goToAbout);
 //searchButtn.addEventListener("click", goToSearch);
 galleryButtn.addEventListener("click", goToGallery);
-
+home.addEventListener("click", goToHome);
 //let aboutPage = document.querySelector("#nav-home");
 //let searchPage = document.querySelector("#search");
 //let galleryPage = document.querySelector("#gallery");
@@ -114,7 +115,6 @@ function createCard(url, breedName, breedInfo) {
   cardFront.setAttribute("class", "flip-card-front");
   cardBack.setAttribute("class", "flip-card-back");
   cardTitle.setAttribute("class", "flip-card-title pt-2");
-
 
   //  let dogInfo = document.createElement("p");
   // cardSize.setAttribute("class", "col-xs-12 col-sm-6 col-lg-4");
@@ -252,7 +252,9 @@ function goToAbout() {
 function goToGallery() {
   galleryLocation();
 }
-
+function goToHome() {
+  homeLocation();
+}
 /*
 function goToHome() {}
   homeLocation();

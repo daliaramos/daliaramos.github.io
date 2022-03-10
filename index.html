@@ -2,84 +2,55 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>DoggoDex</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="src/index.css" />
-	<link rel="stylesheet" href="src/about.css" />
-	<script defer src="src/index.js" type="module"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	<script>
-		function aboutLocation() {
-			window.location.href = "about.html";
-		}
-		function galleryLocation() {
-			window.location.href = "gallery.html";
-		}
-	</script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="src/index.css" />
+    <script src="https://kit.fontawesome.com/17bdd60f3e.js" crossorigin="anonymous"></script>
+    <script src="src/about.js"></script>
+    <script defer src="src/index.js" type="module"></script>
+    <title>DoggoDex Developers</title>
 </head>
 
+<body>
+    <main>
+        <div id="main-container">
+            <div class="main-title">
+                <h1 class="doggodex">
+                    <span class="doggo">Doggo</span>Dex
+                </h1>
+            </div>
+            <h2>Providing information about your favorite dog breeds!</h2>
 
-<main>
-	<div id="main-container">
+            <section class="row justify-content-center">
+                <div class="col col-sm-6 col-md-4">
+                    <a href="/search.html" aria-label="link to search page">
+                        <btn class="box-img-link"><i class="fa-solid fa-magnifying-glass"></i></btn>
+                    </a>
+                </div>
+                <div class="col col-sm-6 col-md-4">
+                    <a href="/gallery.html" aria-label="link to gallery page">
+                        <btn class="box-img-link"><i class="fa-solid fa-images"></i></btn>
+                    </a>
+                </div>
+                <div class="col col-sm-6 col-md-4">
+                    <a class="link" href="/about.html" aria-label="link to the developers' about page">
+                        <btn class="box-img-link"><i class="fa-solid fa-address-book"></i></btn>
+                    </a>
+                </div>
+            </section>
 
-		<body>
-			<main>
-				<div id="main-container">
-					<nav>
-						<div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <div class="footer">
+                <p class="footer-text vertically-aligned-text">We use <a
+                        href="https://www.mediawiki.org/wiki/API:Main_page">WikiMedia</a>
+                    and the <a href="https://dog.ceo/dog-api/">Unofficial Stanford Dogs Dataset API</a>
+                    to deliver information about your favorite dog breeds.</p>
+            </div>
 
-							<button class="nav-link" id="nav-search-tab"
-								data-bs-toggle="tab" data-bs-target="#search"
-								type="button" role="tab" aria-controls="search"
-								aria-selected="false">Home</button>
-
-
-							<button class="nav-link" id="nav-search-tab"
-								data-bs-toggle="tab" data-bs-target="#search"
-								type="button" role="tab" aria-controls="search"
-								aria-selected="true">Search</button>
-
-
-							<button class="nav-link" id="nav-gallery-tab"
-								data-bs-toggle="tab" data-bs-target="#gallery"
-								type="button" role="tab" aria-controls="gallery"
-								aria-selected="false">Gallery</button>
-
-							<button class="nav-link" id="nav-about-tab" data-bs-toggle="tab"
-								data-bs-target="#nav-home" type="button" role="tab"
-								aria-controls="nav-home" aria-selected="false">About
-								Us</button>
-						</div>
-					</nav>
-
-					<div class="tab-content" id="nav-tabContent">
-
-						<div class="tab-pane fade" id="nav-home" role="tabpanel"
-							aria-labelledby="nav-home-tab">
-
-						</div>
-						<div class="tab-pane fade show active" id="search" role="tabpanel"
-							aria-labelledby="nav-search-tab">
-							<div class="input-group">
-								<input id="breed" type="text"
-									class="form-control rounded"
-									placeholder="Search" aria-label="Search"
-									aria-describedby="search-addon" />
-							</div>
-
-						</div>
-
-
-						<div class="tab-pane fade" id="gallery" role="tabpanel"
-							aria-labelledby="nav-gallery-tab">
-							bye</div>
-					</div>
-
-					<div class="row"></div>
-				</div>
-			</main>
-		</body>
+        </div>
+    </main>
+</body>
 
 </html>

@@ -3,8 +3,10 @@ import { capitalizeFirst, finalizeName } from "./dog-api.js";
 const mainContainer = document.querySelector("#main-container");
 const about = document.querySelector("#nav-about-tab");
 const search = document.querySelector("#nav-search-tab");
+const home = document.querySelector("#nav-home-tab");
 about.addEventListener("click", goToAbout);
 search.addEventListener("click", goToSearch);
+home.addEventListener("click", goToHome);
 const getArticle = (breed) => {
   let article = "a";
   switch (breed[0].toUpperCase()) {
@@ -58,7 +60,6 @@ const newBreedImgRow = async (newRow, breed, minImg, maxImg) => {
     }
     let imgElement = document.createElement("div");
     imgElement.setAttribute("class", "breed-img");
-    imgElement.setAttribute("onclick", "viewModal()");
     let n = i + 1;
     imgElement.innerHTML = `<img src=${img} alt="Sample ${n} from gallery of ${breed} dogs" />`;
     newImgRow.append(imgElement);
@@ -80,6 +81,8 @@ function goToAbout() {
 }
 
 function goToSearch() {
-  console.log("gotosearch");
   searchLocation();
+}
+function goToHome() {
+  homeLocation();
 }
