@@ -1,5 +1,9 @@
 @import 'styles.css';
 
+h1 {
+	padding-top: 20px;
+}
+
 .card {
 	margin: 40px;
 	padding: 20px;
