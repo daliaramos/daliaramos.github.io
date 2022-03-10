@@ -19,7 +19,6 @@ home.addEventListener("click", goToHome);
 function goToHome() {
   homeLocation();
 }
-
 function goToSearch() {
   searchLocation();
 }
