@@ -233,7 +233,9 @@ function goToHome() {
 /*
   References: 
   wikimedia api I followed https://www.youtube.com/watch?v=yqwHxAH1xrw&ab_channel=danascript
-  To remove all child elements I read at https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
-  Promise all I read at https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+  To remove all child elements I read https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+  Promise all I read https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
   and https://www.learnwithjason.dev/blog/keep-async-await-from-blocking-execution
+  redirect the user to the next page I read https://www.w3schools.com/js/js_window_location.asp
+  Used navbar and tab was copied from bootsrap https://getbootstrap.com/docs/4.0/components/navbar/
 */
