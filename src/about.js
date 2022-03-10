@@ -15,8 +15,6 @@ window.onload = function typeWriter() {
 about.addEventListener("click", handleGal);
 search.addEventListener("click", handleSearch);
 
-typeWriter();
-
 function handleGal() {
   galLocation();
 }
