@@ -15,23 +15,16 @@ getResponse().then((data) => {
 });
 
 const row = document.querySelector(".row");
-//const all = document.querySelector("#all");
-//const random = document.querySelector("#rand");
 const userInput = document.querySelector("#breed");
 userInput.addEventListener("input", search);
-//random.addEventListener("click", randomImage);
 const about = document.querySelector("#nav-about-tab");
-//const searchButtn = document.querySelector("#nav-search-tab");
 const galleryButtn = document.querySelector("#nav-gallery-tab");
 const home = document.querySelector("#nav-home-tab");
 about.addEventListener("click", goToAbout);
-//searchButtn.addEventListener("click", goToSearch);
 galleryButtn.addEventListener("click", goToGallery);
 home.addEventListener("click", goToHome);
-//let aboutPage = document.querySelector("#nav-home");
-//let searchPage = document.querySelector("#search");
-//let galleryPage = document.querySelector("#gallery");
 
+//fetch the data and searches for the input value
 const dogDesc = async (breedName) => {
   //Wiki API
   let wikiUrl = "https://en.wikipedia.org/w/api.php";
@@ -56,9 +49,9 @@ const dogDesc = async (breedName) => {
     //delete current card
     console.log(error);
   }
-
-  //console.log(data);
 };
+
+//gets the data from the wikimedia api
 function getBreedInfo(data) {
   let para = document.createElement("p");
   let desc = data.query.pages;
@@ -67,6 +60,7 @@ function getBreedInfo(data) {
   return para;
 }
 
+//checks input value
 function emptyInput(input) {
   if (input === "" || input === " ") {
     return false;
@@ -74,6 +68,8 @@ function emptyInput(input) {
     return true;
   }
 }
+
+//eventhandler for the input field
 function search(event) {
   event.preventDefault();
   let breedName = userInput.value;
@@ -92,17 +88,6 @@ function removeCards() {
 }
 //creates a card as dog breed is being searched
 function createCard(url, breedName, breedInfo) {
-  // let cardSize = document.createElement("div");
-  // let card = document.createElement("div");
-  // let image = document.createElement("img");
-  // let cardBody = document.createElement("div");
-  // let cardTitle = document.createElement("h3");
-  // let cardButton = document.createElement("button");
-
-  // cardButton.setAttribute("type", "button");
-  // cardButton.setAttribute("class", "btn btn-primary");
-  // cardButton.innerHTML = "More information";
-
   let card = document.createElement("div");
   let cardInner = document.createElement("div");
   let cardFront = document.createElement("div");
@@ -116,9 +101,6 @@ function createCard(url, breedName, breedInfo) {
   cardBack.setAttribute("class", "flip-card-back");
   cardTitle.setAttribute("class", "flip-card-title pt-2");
 
-  //  let dogInfo = document.createElement("p");
-  // cardSize.setAttribute("class", "col-xs-12 col-sm-6 col-lg-4");
-  // card.setAttribute("class", "card");
   image.setAttribute("src", `${url}`);
   image.setAttribute("class", "card-img-top");
   switch (breedName[0]) {
@@ -129,8 +111,6 @@ function createCard(url, breedName, breedInfo) {
       image.setAttribute("alt", `A ${breedName}`);
       break;
   }
-  // cardBody.setAttribute("class", "card-body");
-  // cardTitle.setAttribute("class", "card-title");
   let capitalize = capitalizeFirst(breedName);
   let finalName = finalizeName(capitalize);
   cardTitle.innerHTML = `${finalName}`;
@@ -144,18 +124,10 @@ function createCard(url, breedName, breedInfo) {
   cardInner.append(cardBack);
   card.append(cardInner);
 
-  // cardBody.append(cardTitle);
-  // cardBody.append(breedInfo);
-  // card.append(image);
-  // card.append(cardBody);
-  // card.append(cardButton);
-  // cardSize.append(card);
-
   return card;
 }
 
-//
-
+//Created the card when the input value is found on the list of breeds
 const createAllCards = async (input) => {
   if (breedNames.includes(input) === true) {
     disableInput();
@@ -194,6 +166,7 @@ const createAllCards = async (input) => {
   }
 };
 
+//Fetch breed images and breed names
 function getAllBreeds(breedNames, breedImgsSrcs, subBreeds, allBreedsObj) {
   for (let breed in allBreedsObj) {
     let breedName = breed;
@@ -221,6 +194,7 @@ function getAllBreeds(breedNames, breedImgsSrcs, subBreeds, allBreedsObj) {
   }
 }
 
+//disables and enables input field
 function disableInput() {
   userInput.disabled = true;
 }
@@ -245,37 +219,21 @@ function getImage(input) {
   return breedImage;
 }
 
+//Redirects user to the next page
 function goToAbout() {
   aboutLocation();
 }
-
 function goToGallery() {
   galleryLocation();
 }
 function goToHome() {
   homeLocation();
 }
+
 /*
-function goToHome() {}
-  homeLocation();
-}
-
-
-function showPage(buttonId, pageDiv) {
-  //button
-  buttonId.classList.add("active");
-  buttonId.style.ariaSelected = "true";
-
-  //content
-  pageDiv.classList.add("show");
-  pageDiv.classList.add("active");
-}
-function togglePage(divId, pageDiv) {
-  divId.classList.remove("active");
-  divId.style.ariaSelected = "false";
-
-  pageDiv.classList.remove("show");
-  pageDiv.classList.remove("active");
-}
-
+  References: 
+  wikimedia api I followed https://www.youtube.com/watch?v=yqwHxAH1xrw&ab_channel=danascript
+  To remove all child elements I read at https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+  Promise all I read at https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+  and https://www.learnwithjason.dev/blog/keep-async-await-from-blocking-execution
 */

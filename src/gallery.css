@@ -95,3 +95,28 @@ img {
 .scroll-row::-webkit-scrollbar-thumb {
     background: var(--olivelight);
 }
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 2.2em;
+    }
+    img {
+        height: 200px;
+        width: 200px;
+    }
+    .breed-name-container {
+        min-height: 200px;
+    }
+    .breed-name-container {
+        height: 160px;
+    }
+    .breed-name {
+        position: relative;
+        top: 0%;
+        font-size: 1.2em;
+    }
+    .scroll-row {
+        height: fit-content;
+        margin-left: 20px;
+    }
+}

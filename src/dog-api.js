@@ -36,6 +36,12 @@ export const fixName = (breedName) => {
     case "Mix":
       breedName = "Mixed";
       break;
+    case "Germanshepherd":
+      breedName = "German Shepherd";
+      break;
+    case "Mexicanhairless":
+      breedName = "Mexican Hairless";
+      break;
     default:
       break;
   }

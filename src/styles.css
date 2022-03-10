@@ -46,6 +46,11 @@ a {
   margin: auto;
 }
 
+.nav {
+  border: none;
+  border-bottom: 4px solid var(--bgorange);
+}
+
 button.nav-link {
   background-color: transparent;
   color: var(--darkbrown);

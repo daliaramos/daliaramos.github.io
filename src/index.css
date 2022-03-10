@@ -99,3 +99,22 @@ a:active,
 a:hover {
   text-decoration: none;
 }
+
+@media (max-width: 1000px) {
+  .box-img-link {
+    height: 200px;
+    font-size: 4em;
+  }
+
+  .footer {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .box-img-link {
+    margin: 20px;
+    height: 100px;
+    font-size: 3em;
+  }
+}
