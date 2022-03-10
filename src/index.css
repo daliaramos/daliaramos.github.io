@@ -100,6 +100,12 @@ a:hover {
   text-decoration: none;
 }
 
+@media (max-width: 1000px) {
+  .box-img-link {
+    height: 200px;
+    font-size: 4em;
+  }
+}
 
 @media (max-width: 500px) {
   .box-img-link {
