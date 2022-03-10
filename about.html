@@ -11,25 +11,26 @@
 	<link rel="stylesheet" href="src/about.css" />
 	<script src="src/about.js"></script>
 	<script defer src="src/index.js" type="module"></script>
+	<title>DoggoDex Developers</title>
+
 	<script>
-		function galleryLocation() {
+		function galLocation() {
 			window.location.href = "gallery.html"
 		}
 
 	</script>
 	<script>
-		function searchLocation() {
+		function searLocation() {
 			window.location.href = "index.html"
 		}
 	</script>
-
-
-	<title>DoggoDex Developers</title>
 </head>
 
 <body>
 	<main>
-		<nav>
+		<div id="main-container">
+			<h1 class="pt-3">Meet the developers!</h1>
+			<h2 class="pb-2" id="typing"></h2>
 			<div class="nav nav-tabs" id="nav-tab" role="tablist">
 
 				<button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#search"
@@ -44,29 +45,23 @@
 
 				<button class="nav-link" id="nav-gallery-tab" data-bs-toggle="tab"
 					data-bs-target="#gallery" type="button" role="tab" aria-controls="gallery"
-					aria-selected="false">Gallery</button>
+					aria-selected="true">Gallery</button>
 
 				<button class="nav-link" id="nav-about-tab" data-bs-toggle="tab"
 					data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-					aria-selected="true">About Us</button>
+					aria-selected="false">About Us</button>
 			</div>
-		</nav>
-		<div id="main-container">
-			<h1 class="pt-3">Meet the developers!</h1>
-			<h2 class="pb-2" id="typing"></h2>
-
+			</nav>
 			<section class="row justify-content-center">
-				<div class="flip-card col-lg-4">
+				<div class="flip-card col-lg-4" id="nicole">
 					<div class="flip-card-inner">
 						<div class="flip-card-front">
 							<img id="nicole" src="./images/nicole.jpg"
 								alt="picture of Nicole" />
 							<h5 class="flip-card-title">Nicole Chen</h5>
 							<p>
-								Her favorite dog is described as "fiercely
-								proud" in its
-								standard. Originally bred for hunting, it's now
-								known
+								Her favorite dog is described as "fiercely proud" in its
+								standard. Originally bred for hunting, it's now known
 								for its
 								adorable fluffy butt and unusal vocalizations.
 							</p>
@@ -88,11 +83,9 @@
 								alt="picture of Eleanore" />
 							<h5 class="flip-card-title">Eleanore Clark</h5>
 							<p>
-								Her favorite dog was created to help hunt
-								waterfowl, but
+								Her favorite dog was created to help hunt waterfowl, but
 								its
-								intelligence and unique looks led to wide employ
-								in
+								intelligence and unique looks led to wide employ in
 								circuses.
 								Owners know these dogs to be fussy eaters!
 							</p>
@@ -114,13 +107,10 @@
 								alt="picture of Dalia" />
 							<h5 class="flip-card-title">Dalia Ramos-Hernandez</h5>
 							<p>
-								Her favorite dog is a fun-sized mix of two
-								breeds. One
+								Her favorite dog is a fun-sized mix of two breeds. One
 								of the
-								breeds, white and fluffy, was famously beloved
-								by Queen
-								Victoria; the other is the national dog of
-								France.
+								breeds, white and fluffy, was famously beloved by Queen
+								Victoria; the other is the national dog of France.
 							</p>
 						</div>
 						<div class="flip-card-back">
