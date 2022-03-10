@@ -11,6 +11,7 @@ Doggodex is a web application that centered around dog breeds. It allows the use
 - CSS
 - Bootstrap
 - Javascript
+- Axios
 ### APIs
 - Dogs - https://dog.ceo/dog-api/
 - Wikipedia - https://en.wikipedia.org/w/api.php
