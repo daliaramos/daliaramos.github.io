@@ -10,16 +10,15 @@ window.onload = function typeWriter() {
   }
 };
 
-typeWriter();
-
 const about = document.querySelector("#nav-gallery-tab");
 const search = document.querySelector("#nav-search-tab");
 about.addEventListener("click", handleGal);
-search.addEventListener("click", goToSearch);
+search.addEventListener("click", handleSearch);
+
 function handleGal() {
-  galleryLocation();
+  galLocation();
 }
 
-function goToSearch() {
-  searchLocation();
+function handleSearch() {
+  searLocation();
 }

@@ -9,19 +9,18 @@
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 		crossorigin="anonymous" />
 	<link rel="stylesheet" href="src/about.css" />
-	<script src="src/about.js" type="module"></script>
+	<script src="src/about.js"></script>
 	<script defer src="src/index.js" type="module"></script>
 	<title>DoggoDex Developers</title>
 
 	<script>
 		function galLocation() {
-			window.location.href = "gallery.html"
+			window.location.href = "gallery.html";
 		}
-
 	</script>
 	<script>
 		function searLocation() {
-			window.location.href = "index.html"
+			window.location.href = "index.html";
 		}
 	</script>
 </head>
@@ -29,31 +28,33 @@
 <body>
 	<main>
 		<div id="main-container">
-			<nav>
-				<div class="nav nav-tabs" id="nav-tab" role="tablist">
-
-					<button class="nav-link" id="nav-home-tab" data-bs-toggle="tab"
-						data-bs-target="#search" type="button" role="tab" aria-controls="search"
-						aria-selected="false">Home</button>
-
-
-					<button class="nav-link" id="nav-search-tab" data-bs-toggle="tab"
-						data-bs-target="#search" type="button" role="tab" aria-controls="search"
-						aria-selected="false">Search</button>
-
-
-					<button class="nav-link" id="nav-gallery-tab" data-bs-toggle="tab"
-						data-bs-target="#gallery" type="button" role="tab"
-						aria-controls="gallery" aria-selected="false">Gallery</button>
-
-					<button class="nav-link" id="nav-about-tab" data-bs-toggle="tab"
-						data-bs-target="#nav-home" type="button" role="tab"
-						aria-controls="nav-home" aria-selected="false">About Us</button>
-				</div>
-			</nav>
 			<h1 class="pt-3">Meet the developers!</h1>
 			<h2 class="pb-2" id="typing"></h2>
+			<div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+				<button class="nav-link d-inline" id="nav-home-tab" data-bs-toggle="tab"
+					data-bs-target="#search" type="button" role="tab" aria-controls="search"
+					aria-selected="false">
+					Home
+				</button>
 
+				<button class="nav-link" id="nav-search-tab" data-bs-toggle="tab"
+					data-bs-target="#search" type="button" role="tab" aria-controls="search"
+					aria-selected="false">
+					Search
+				</button>
+
+				<button class="nav-link" id="nav-gallery-tab" data-bs-toggle="tab"
+					data-bs-target="#gallery" type="button" role="tab" aria-controls="gallery"
+					aria-selected="true">
+					Gallery
+				</button>
+
+				<button class="nav-link" id="nav-about-tab" data-bs-toggle="tab"
+					data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+					aria-selected="false">
+					About Us
+				</button>
+			</div>
 			<section class="row justify-content-center">
 				<div class="flip-card col-lg-4" id="nicole">
 					<div class="flip-card-inner">
@@ -78,7 +79,7 @@
 					</div>
 				</div>
 
-				<div class="flip-card col-lg-4" id="eleanore">
+				<div class="flip-card col-lg-4" id="eleanore" style="height: 80vh">
 					<div class="flip-card-inner">
 						<div class="flip-card-front">
 							<img id="nicole" src="./images/eleanore.jpg"
@@ -102,7 +103,7 @@
 					</div>
 				</div>
 
-				<div class="flip-card col-lg-4" id="dalia">
+				<div class="flip-card col-lg-4" id="dalia" style="height: 80vh">
 					<div class="flip-card-inner">
 						<div class="flip-card-front">
 							<img id="nicole" src="./images/dalia.jpg"

@@ -91,20 +91,34 @@ function removeCards() {
 }
 //creates a card as dog breed is being searched
 function createCard(url, breedName, breedInfo) {
-  let cardSize = document.createElement("div");
-  let card = document.createElement("div");
-  let image = document.createElement("img");
-  let cardBody = document.createElement("div");
-  let cardTitle = document.createElement("h3");
-  let cardButton = document.createElement("button");
+  // let cardSize = document.createElement("div");
+  // let card = document.createElement("div");
+  // let image = document.createElement("img");
+  // let cardBody = document.createElement("div");
+  // let cardTitle = document.createElement("h3");
+  // let cardButton = document.createElement("button");
 
-  cardButton.setAttribute("type", "button");
-  cardButton.setAttribute("class", "btn btn-primary");
-  cardButton.innerHTML = "More information";
+  // cardButton.setAttribute("type", "button");
+  // cardButton.setAttribute("class", "btn btn-primary");
+  // cardButton.innerHTML = "More information";
+
+  let card = document.createElement("div");
+  let cardInner = document.createElement("div");
+  let cardFront = document.createElement("div");
+  let cardBack = document.createElement("div");
+  let cardTitle = document.createElement("h5");
+  let image = document.createElement("img");
+
+  card.setAttribute("class", "flip-card col-xs-12 col-sm-6 col-lg-4");
+  cardInner.setAttribute("class", "flip-card-inner");
+  cardFront.setAttribute("class", "flip-card-front");
+  cardBack.setAttribute("class", "flip-card-back");
+  cardTitle.setAttribute("class", "flip-card-title pt-2");
+
 
   //  let dogInfo = document.createElement("p");
-  cardSize.setAttribute("class", "col-xs-12 col-sm-6 col-lg-4");
-  card.setAttribute("class", "card");
+  // cardSize.setAttribute("class", "col-xs-12 col-sm-6 col-lg-4");
+  // card.setAttribute("class", "card");
   image.setAttribute("src", `${url}`);
   image.setAttribute("class", "card-img-top");
   switch (breedName[0]) {
@@ -115,20 +129,29 @@ function createCard(url, breedName, breedInfo) {
       image.setAttribute("alt", `A ${breedName}`);
       break;
   }
-  cardBody.setAttribute("class", "card-body");
-  cardTitle.setAttribute("class", "card-title");
+  // cardBody.setAttribute("class", "card-body");
+  // cardTitle.setAttribute("class", "card-title");
   let capitalize = capitalizeFirst(breedName);
   let finalName = finalizeName(capitalize);
   cardTitle.innerHTML = `${finalName}`;
 
-  cardBody.append(cardTitle);
-  cardBody.append(breedInfo);
-  card.append(image);
-  card.append(cardBody);
-  card.append(cardButton);
-  cardSize.append(card);
+  cardFront.append(image);
+  cardFront.append(cardTitle);
 
-  return cardSize;
+  cardBack.append(breedInfo);
+
+  cardInner.append(cardFront);
+  cardInner.append(cardBack);
+  card.append(cardInner);
+
+  // cardBody.append(cardTitle);
+  // cardBody.append(breedInfo);
+  // card.append(image);
+  // card.append(cardBody);
+  // card.append(cardButton);
+  // cardSize.append(card);
+
+  return card;
 }
 
 //
