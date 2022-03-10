@@ -5,13 +5,53 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>DoggoDex Gallery</title>
+	<link rel="icon" type="image/jpg" href="./images/dog_icon.jpg">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="src/gallery.css" />
 	<script defer src="src/gallery.js" type="module"></script>
+
+	<script>
+		function aboutLocation() {
+			window.location.href = "about.html"
+		}
+
+	</script>
+	<script>
+		function searchLocation() {
+			window.location.href = "search.html"
+		}
+		function homeLocation() {
+			window.location.href = "index.html"
+		}
+
+	</script>
 </head>
 
 <body>
 	<main>
+		<nav>
+			<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+				<button class="nav-link" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#search"
+					type="button" role="tab" 
+					aria-selected="false">Home</button>
+
+
+				<button class="nav-link" id="nav-search-tab" data-bs-toggle="tab"
+					data-bs-target="#search" type="button" role="tab"
+					aria-selected="false">Search</button>
+
+
+				<button class="nav-link" id="nav-gallery-tab" data-bs-toggle="tab"
+					data-bs-target="#gallery" type="button" role="tab"
+					aria-selected="true">Gallery</button>
+
+				<button class="nav-link" id="nav-about-tab" data-bs-toggle="tab"
+					data-bs-target="#nav-home" type="button" role="tab"
+					aria-selected="false">About Us</button>
+			</div>
+		</nav>
+
 		<div id="main-container">
 			<div class="heading-container">
 				<h1> Gallery: Dogs By Breed </h1>

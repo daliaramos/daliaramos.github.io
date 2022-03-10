@@ -20,6 +20,17 @@ const row = document.querySelector(".row");
 const userInput = document.querySelector("#breed");
 userInput.addEventListener("input", search);
 //random.addEventListener("click", randomImage);
+const about = document.querySelector("#nav-about-tab");
+//const searchButtn = document.querySelector("#nav-search-tab");
+const galleryButtn = document.querySelector("#nav-gallery-tab");
+const home = document.querySelector("#nav-home-tab");
+about.addEventListener("click", goToAbout);
+//searchButtn.addEventListener("click", goToSearch);
+galleryButtn.addEventListener("click", goToGallery);
+home.addEventListener("click", goToHome);
+//let aboutPage = document.querySelector("#nav-home");
+//let searchPage = document.querySelector("#search");
+//let galleryPage = document.querySelector("#gallery");
 
 const dogDesc = async (breedName) => {
   //Wiki API
@@ -81,14 +92,33 @@ function removeCards() {
 }
 //creates a card as dog breed is being searched
 function createCard(url, breedName, breedInfo) {
-  let cardSize = document.createElement("div");
+  // let cardSize = document.createElement("div");
+  // let card = document.createElement("div");
+  // let image = document.createElement("img");
+  // let cardBody = document.createElement("div");
+  // let cardTitle = document.createElement("h3");
+  // let cardButton = document.createElement("button");
+
+  // cardButton.setAttribute("type", "button");
+  // cardButton.setAttribute("class", "btn btn-primary");
+  // cardButton.innerHTML = "More information";
+
   let card = document.createElement("div");
+  let cardInner = document.createElement("div");
+  let cardFront = document.createElement("div");
+  let cardBack = document.createElement("div");
+  let cardTitle = document.createElement("h5");
   let image = document.createElement("img");
-  let cardBody = document.createElement("div");
-  let cardTitle = document.createElement("h3");
+
+  card.setAttribute("class", "flip-card col-xs-12 col-sm-6 col-lg-4");
+  cardInner.setAttribute("class", "flip-card-inner");
+  cardFront.setAttribute("class", "flip-card-front");
+  cardBack.setAttribute("class", "flip-card-back");
+  cardTitle.setAttribute("class", "flip-card-title pt-2");
+
   //  let dogInfo = document.createElement("p");
-  cardSize.setAttribute("class", "col-xs-12 col-sm-6 col-lg-4");
-  card.setAttribute("class", "card");
+  // cardSize.setAttribute("class", "col-xs-12 col-sm-6 col-lg-4");
+  // card.setAttribute("class", "card");
   image.setAttribute("src", `${url}`);
   image.setAttribute("class", "card-img-top");
   switch (breedName[0]) {
@@ -99,19 +129,29 @@ function createCard(url, breedName, breedInfo) {
       image.setAttribute("alt", `A ${breedName}`);
       break;
   }
-  cardBody.setAttribute("class", "card-body");
-  cardTitle.setAttribute("class", "card-title");
+  // cardBody.setAttribute("class", "card-body");
+  // cardTitle.setAttribute("class", "card-title");
   let capitalize = capitalizeFirst(breedName);
   let finalName = finalizeName(capitalize);
   cardTitle.innerHTML = `${finalName}`;
 
-  cardBody.append(cardTitle);
-  cardBody.append(breedInfo);
-  card.append(image);
-  card.append(cardBody);
-  cardSize.append(card);
+  cardFront.append(image);
+  cardFront.append(cardTitle);
 
-  return cardSize;
+  cardBack.append(breedInfo);
+
+  cardInner.append(cardFront);
+  cardInner.append(cardBack);
+  card.append(cardInner);
+
+  // cardBody.append(cardTitle);
+  // cardBody.append(breedInfo);
+  // card.append(image);
+  // card.append(cardBody);
+  // card.append(cardButton);
+  // cardSize.append(card);
+
+  return card;
 }
 
 //
@@ -204,3 +244,38 @@ function getImage(input) {
   });
   return breedImage;
 }
+
+function goToAbout() {
+  aboutLocation();
+}
+
+function goToGallery() {
+  galleryLocation();
+}
+function goToHome() {
+  homeLocation();
+}
+/*
+function goToHome() {}
+  homeLocation();
+}
+
+
+function showPage(buttonId, pageDiv) {
+  //button
+  buttonId.classList.add("active");
+  buttonId.style.ariaSelected = "true";
+
+  //content
+  pageDiv.classList.add("show");
+  pageDiv.classList.add("active");
+}
+function togglePage(divId, pageDiv) {
+  divId.classList.remove("active");
+  divId.style.ariaSelected = "false";
+
+  pageDiv.classList.remove("show");
+  pageDiv.classList.remove("active");
+}
+
+*/
