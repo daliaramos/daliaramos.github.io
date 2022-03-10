@@ -11,9 +11,19 @@
 	--olivelight: rgb(98, 135, 89);
 	--olivedark: rgb(62, 85, 57);
 
+<<<<<<< HEAD
 	--linkblue: rgb(94, 130, 132);
 
 	font-size: 1.1em;
+=======
+<<<<<<< HEAD
+	font-size: 1.1em;
+=======
+    --linkblue: rgb(94, 130, 132);
+
+    font-size: 1.1em;
+>>>>>>> 1a59eb89e7b2588c8ab491c3e9d58ad581c97608
+>>>>>>> d5f65c71fdc149af197807bf91ce9c8b585e5b5d
 }
 
 h1 {
