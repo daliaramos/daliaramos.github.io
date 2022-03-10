@@ -9,18 +9,20 @@
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 		crossorigin="anonymous" />
 	<link rel="stylesheet" href="src/about.css" />
-	<script src="src/about.js"></script>
+	<script src="src/about.js" type="module"></script>
 	<script defer src="src/index.js" type="module"></script>
 	<title>DoggoDex Developers</title>
 
+
 	<script>
-		function galLocation() {
+		function searchLocation() {
+			window.location.href = "search.html";
+		}
+		function galleryLocation() {
 			window.location.href = "gallery.html";
 		}
-	</script>
-	<script>
-		function searLocation() {
-			window.location.href = "search.html";
+		function homeLocation() {
+			window.location.href = "index.html";
 		}
 	</script>
 </head>

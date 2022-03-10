@@ -10,15 +10,19 @@ window.onload = function typeWriter() {
   }
 };
 
-const about = document.querySelector("#nav-gallery-tab");
+const gallery = document.querySelector("#nav-gallery-tab");
 const search = document.querySelector("#nav-search-tab");
-about.addEventListener("click", handleGal);
-search.addEventListener("click", handleSearch);
-
-function handleGal() {
-  galLocation();
+const home = document.querySelector("#nav-home-tab");
+gallery.addEventListener("click", goToGallery);
+search.addEventListener("click", goToSearch);
+home.addEventListener("click", goToHome);
+function goToHome() {
+  homeLocation();
 }
 
-function handleSearch() {
-  searLocation();
+function goToSearch() {
+  searchLocation();
+}
+function goToGallery() {
+  galleryLocation();
 }
