@@ -47,7 +47,7 @@ a {
 }
 
 button.nav-link {
-  background-color: var(--bgorange);
+  background-color: transparent;
   color: var(--darkbrown);
   font-family: "Rancho";
   font-size: 1.5em;
